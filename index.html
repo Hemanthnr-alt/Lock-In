@@ -1,951 +1,1684 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Lock In — A Standard, Not an App</title>
-<meta name="description" content="Lock In is a local-first performance ledger for body, mind and discipline. No cloud, no subscriptions, no accounts." />
-<link rel="icon" type="image/png" href="favicon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --paper:#F6F2E9;
-    --paper-deep:#ECE5D3;
-    --line:#DBD1B7;
-    --ink:#18160C;
-    --ink-70:rgba(24,22,12,.68);
-    --ink-50:rgba(24,22,12,.46);
-    --brass:#8A6B3E;
-    --brass-deep:#6B4F2C;
-    --surface-ink:#18160C;
-    --surface-ink-2:#211E12;
-    --on-ink:#F2ECDC;
-    --on-ink-70:rgba(242,236,220,.62);
-    --on-ink-line:rgba(242,236,220,.14);
-    --serif:'Fraunces', Georgia, serif;
-    --sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Lock In — Master the 1% Standard</title>
+  <meta name="description" content="The complete local-first personal performance engine. Atomic habits, 43-nutrient clinical nutrition, focus timers, solid notes vault, and executive PDF reports — 100% offline." />
+  <meta name="theme-color" content="#EDE8E1" />
+  <meta property="og:title" content="Lock In — Master the 1% Standard" />
+  <meta property="og:description" content="100% Offline. Zero Subscriptions. The sovereign performance operating system for body, mind, and discipline." />
+  <meta property="og:image" content="logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+  <style>
+    :root {
+      /* Warm Architectural Canvas */
+      --page-bg: #EDE8E1;
+      --page-bg-gradient: linear-gradient(180deg, #F5F1E9 0%, #EBE6DC 40%, #E3DDD2 100%);
+      
+      /* Dark Sleek Cards & Surfaces */
+      --card-bg: #11141C;
+      --card-bg-elevated: #161A24;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(245, 166, 35, 0.35);
+      --card-shadow: 0 14px 40px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.06);
+      --card-shadow-hover: 0 22px 54px rgba(0, 0, 0, 0.25), 0 0 32px rgba(245, 166, 35, 0.14);
+      
+      /* Page-level Text */
+      --text-page: #101114;
+      --text-page-secondary: #4A4B52;
+      --text-page-dim: #767780;
 
-  a{color:inherit;text-decoration:none;}
-  ::selection{background:var(--brass);color:var(--paper);}
+      /* Card-level Text */
+      --text-card: #FFFFFF;
+      --text-card-secondary: #94A3B8;
+      --text-card-dim: #64748B;
 
-  :focus-visible{
-    outline:2px solid var(--brass);
-    outline-offset:3px;
-  }
+      /* Accents & Warmth */
+      --gold: #F5A623;
+      --gold-glow: rgba(245, 166, 35, 0.28);
+      --amber-warm: #E65A1E;
+      --bronze: #B47200;
+      --bronze-bg: rgba(180, 114, 0, 0.08);
+      --bronze-border: rgba(180, 114, 0, 0.22);
+      
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 999px;
+    }
 
-  .wrap{
-    max-width:1120px;
-    margin:0 auto;
-    padding:0 28px;
-  }
-  @media (max-width:640px){ .wrap{padding:0 20px;} }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ---------- margin page markers (dossier motif) ---------- */
-  .section{position:relative;}
-  .page-mark{
-    font-family:var(--serif);
-    font-style:italic;
-    font-weight:500;
-    font-size:13px;
-    color:var(--brass);
-    letter-spacing:.02em;
-  }
-  .page-mark.on-ink{color:#C9AD7C;}
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-  /* ---------- nav ---------- */
-  nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(246,242,233,.9);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:1120px;
-    margin:0 auto;
-    padding:0 28px;
-    height:66px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-  @media (max-width:640px){ .nav-inner{padding:0 20px;} }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
 
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-family:var(--serif);
-    font-weight:600;
-    font-size:19px;
-    letter-spacing:-.01em;
-  }
-  .brand svg{flex-shrink:0;}
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--page-bg);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.85) 0%, transparent 65%),
+        var(--page-bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-page);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-  .nav-links{
-    display:flex;
-    gap:30px;
-  }
-  @media (max-width:820px){ .nav-links{display:none;} }
-  .nav-links a{
-    font-size:14px;
-    color:var(--ink-70);
-    border-bottom:1px solid transparent;
-    padding-bottom:2px;
-    transition:color .15s ease, border-color .15s ease;
-  }
-  .nav-links a:hover{color:var(--ink);border-color:var(--brass);}
+    a { text-decoration: none; color: inherit; }
 
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-family:var(--sans);
-    font-size:14px;
-    font-weight:500;
-    cursor:pointer;
-    border:none;
-  }
-  .btn-solid{
-    background:var(--ink);
-    color:var(--paper);
-    height:42px;
-    padding:0 20px;
-    border-radius:3px;
-    transition:background .15s ease, transform .15s ease;
-  }
-  .btn-solid:hover{background:var(--brass-deep);transform:translateY(-1px);}
-  .btn-line{
-    background:transparent;
-    color:var(--ink);
-    border-bottom:1px solid var(--ink);
-    padding-bottom:2px;
-    height:auto;
-  }
-  .btn-line:hover{color:var(--brass-deep);border-color:var(--brass-deep);}
-  .btn-line.on-ink{color:var(--on-ink);border-color:var(--on-ink);}
-  .btn-line.on-ink:hover{color:#C9AD7C;border-color:#C9AD7C;}
+    /* ─── Top Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      max-width: 100vw;
+      z-index: 100;
+      background: rgba(245, 241, 233, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      box-sizing: border-box;
+      transition: background 0.2s ease;
+    }
 
-  /* ---------- hero ---------- */
-  .hero{
-    padding:96px 0 64px;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr;
-    gap:56px;
-    align-items:end;
-  }
-  @media (max-width:880px){
-    .hero-grid{grid-template-columns:1fr;gap:36px;align-items:start;}
-  }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
 
-  .hero .page-mark{display:block;margin-bottom:22px;}
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+      color: var(--text-page);
+      cursor: pointer;
+    }
 
-  .hero h1{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(46px, 7.4vw, 92px);
-    line-height:.98;
-    letter-spacing:-.025em;
-  }
-  .hero h1 em{
-    font-style:italic;
-    font-weight:500;
-    color:var(--brass-deep);
-  }
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: #000;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-  .hero-lede{
-    margin-top:22px;
-    font-size:17px;
-    line-height:1.65;
-    color:var(--ink-70);
-    max-width:46ch;
-  }
+    .nav-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-  .hero-facts{
-    margin-top:26px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
-  .hero-facts p{
-    font-size:14.5px;
-    color:var(--ink-70);
-    position:relative;
-    padding-left:18px;
-  }
-  .hero-facts p::before{
-    content:'';
-    position:absolute;
-    left:0;
-    top:9px;
-    width:8px;
-    height:1px;
-    background:var(--brass);
-  }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
 
-  .hero-cta{
-    margin-top:34px;
-    display:flex;
-    align-items:center;
-    gap:26px;
-    flex-wrap:wrap;
-  }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+    }
 
-  .hero-side{
-    border-left:1px solid var(--line);
-    padding-left:28px;
-  }
-  @media (max-width:880px){ .hero-side{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:24px;} }
-  .hero-side .quote{
-    font-family:var(--serif);
-    font-style:italic;
-    font-size:20px;
-    line-height:1.5;
-    color:var(--ink);
-  }
-  .hero-side .quote-attr{
-    margin-top:14px;
-    font-size:12.5px;
-    color:var(--ink-50);
-  }
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-page-secondary);
+      transition: color 0.15s ease;
+    }
 
-  /* ---------- dossier page viewer ---------- */
-  .viewer{
-    padding:70px 0 90px;
-    border-top:1px solid var(--line);
-  }
-  .viewer-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:24px;
-    margin-bottom:40px;
-    flex-wrap:wrap;
-  }
-  .viewer-head h2{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(28px,4vw,42px);
-    letter-spacing:-.02em;
-  }
-  .viewer-head p{
-    max-width:38ch;
-    font-size:14.5px;
-    color:var(--ink-70);
-    line-height:1.55;
-  }
+    .nav-link:hover {
+      color: var(--text-page);
+    }
 
-  .viewer-body{
-    display:grid;
-    grid-template-columns:0.9fr 1.6fr;
-    gap:44px;
-    align-items:start;
-  }
-  @media (max-width:820px){
-    .viewer-body{grid-template-columns:1fr;}
-  }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-  .tab-list{
-    display:flex;
-    flex-direction:column;
-    border-top:1px solid var(--line);
-  }
-  .tab{
-    background:none;
-    border:none;
-    border-bottom:1px solid var(--line);
-    text-align:left;
-    padding:15px 4px;
-    font-family:var(--sans);
-    font-size:14.5px;
-    color:var(--ink-50);
-    cursor:pointer;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    transition:color .15s ease, padding-left .15s ease;
-  }
-  .tab span.num{
-    font-family:var(--serif);
-    font-style:italic;
-    font-size:12.5px;
-    color:var(--ink-50);
-  }
-  .tab:hover{color:var(--ink);padding-left:8px;}
-  .tab.active{color:var(--ink);font-weight:500;padding-left:8px;}
-  .tab.active span.num{color:var(--brass-deep);}
+    .nav-btn-secondary {
+      height: 38px;
+      padding: 0 16px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.09);
+      color: var(--text-page);
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-  .page-frame{
-    background:#FBF9F3;
-    border:1px solid var(--line);
-    border-radius:2px;
-    box-shadow:0 1px 0 var(--line), 0 24px 48px -28px rgba(24,22,12,.35);
-    padding:34px 30px;
-    min-height:400px;
-    position:relative;
-  }
-  .page-frame::before{
-    content:'';
-    position:absolute;
-    top:14px;
-    right:14px;
-    width:20px;
-    height:20px;
-    border-top:1px solid var(--line);
-    border-right:1px solid var(--line);
-  }
-  .page-eyebrow{
-    display:flex;
-    justify-content:space-between;
-    font-size:11.5px;
-    color:var(--ink-50);
-    border-bottom:1px solid var(--line);
-    padding-bottom:12px;
-    margin-bottom:22px;
-    font-family:var(--serif);
-    font-style:italic;
-  }
-  .page-title{
-    font-family:var(--serif);
-    font-size:22px;
-    font-weight:500;
-    margin-bottom:20px;
-    letter-spacing:-.01em;
-  }
-  .page-art{width:100%;height:auto;display:block;}
-  .page-caption{
-    margin-top:20px;
-    font-size:13.5px;
-    color:var(--ink-70);
-    line-height:1.55;
-    max-width:52ch;
-  }
+    .nav-btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.09);
+      transform: translateY(-1px);
+    }
 
-  /* ---------- feature ledger ---------- */
-  .ledger{
-    padding:80px 0;
-    border-top:1px solid var(--line);
-  }
-  .ledger-head{
-    max-width:52ch;
-    margin-bottom:48px;
-  }
-  .ledger-head h2{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(28px,4vw,42px);
-    letter-spacing:-.02em;
-    margin-bottom:14px;
-  }
-  .ledger-head p{
-    font-size:15.5px;
-    color:var(--ink-70);
-    line-height:1.6;
-  }
+    .nav-download {
+      height: 38px;
+      padding: 0 18px;
+      border-radius: var(--radius-full);
+      background: #111114;
+      color: #FFF !important;
+      font-weight: 650;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-  .ledger-list{
-    border-top:1px solid var(--line);
-  }
-  .ledger-row{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:32px;
-    padding:26px 0;
-    border-bottom:1px solid var(--line);
-  }
-  @media (max-width:700px){
-    .ledger-row{grid-template-columns:1fr;gap:8px;padding:22px 0;}
-  }
-  .ledger-row h3{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:19px;
-    letter-spacing:-.01em;
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-  }
-  .ledger-row h3 .tag{
-    font-family:var(--sans);
-    font-size:11px;
-    color:var(--brass-deep);
-    border:1px solid var(--brass);
-    border-radius:2px;
-    padding:2px 6px;
-    font-weight:500;
-  }
-  .ledger-row p{
-    font-size:14.5px;
-    color:var(--ink-70);
-    line-height:1.6;
-    max-width:58ch;
-  }
+    .nav-download:hover {
+      background: #000;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
+    }
 
-  /* ---------- dossier spotlight (dark) ---------- */
-  .spotlight{
-    background:var(--surface-ink);
-    color:var(--on-ink);
-    padding:88px 0;
-  }
-  .spotlight-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:56px;
-    align-items:center;
-  }
-  @media (max-width:880px){ .spotlight-grid{grid-template-columns:1fr;} }
+    /* ─── Hero Section ─── */
+    .hero {
+      position: relative;
+      padding: 64px 20px 48px;
+      text-align: center;
+      max-width: 1080px;
+      margin: 0 auto;
+      overflow: visible;
+      box-sizing: border-box;
+    }
 
-  .spotlight h2{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(30px,4.4vw,46px);
-    line-height:1.08;
-    letter-spacing:-.02em;
-    margin:18px 0 18px;
-  }
-  .spotlight p.lede{
-    font-size:15.5px;
-    line-height:1.65;
-    color:var(--on-ink-70);
-    max-width:46ch;
-    margin-bottom:28px;
-  }
-  .spotlight-list{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    margin-bottom:34px;
-  }
-  .spotlight-list li{
-    list-style:none;
-    display:flex;
-    gap:12px;
-    font-size:14.5px;
-    color:var(--on-ink);
-    align-items:flex-start;
-  }
-  .spotlight-list li .mk{
-    color:#C9AD7C;
-    font-family:var(--serif);
-    font-style:italic;
-    flex-shrink:0;
-  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(840px, 100vw);
+      height: 520px;
+      background: radial-gradient(ellipse at center, rgba(230, 90, 30, 0.08) 0%, rgba(245, 166, 35, 0.05) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-  .doc-preview{
-    background:#221E12;
-    border:1px solid var(--on-ink-line);
-    border-radius:3px;
-    padding:30px 26px;
-    max-width:340px;
-    margin:0 auto;
-  }
-  .doc-preview .seal{
-    width:34px;height:34px;
-    border-radius:50%;
-    border:1px solid #C9AD7C;
-    display:flex;align-items:center;justify-content:center;
-    margin-bottom:18px;
-  }
-  .doc-preview .dhead{
-    font-family:var(--serif);
-    font-style:italic;
-    font-size:12px;
-    color:var(--on-ink-70);
-    border-bottom:1px solid var(--on-ink-line);
-    padding-bottom:10px;
-    margin-bottom:16px;
-  }
+    /* Hero App Icon Showcase */
+    .hero-icon-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 22px;
+      z-index: 1;
+    }
 
-  /* ---------- stats ---------- */
-  .stats{
-    padding:70px 0;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  .stats-row{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-  }
-  @media (max-width:700px){ .stats-row{grid-template-columns:repeat(2,1fr);} }
-  .stat{
-    padding:0 24px 0 0;
-    border-left:1px solid var(--line);
-    padding-left:24px;
-  }
-  .stat:first-child{border-left:none;padding-left:0;}
-  @media (max-width:700px){
-    .stat{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:20px;margin-top:20px;}
-    .stat:nth-child(odd){padding-left:0;}
-    .stat:nth-child(1),.stat:nth-child(2){border-top:none;margin-top:0;padding-top:0;}
-  }
-  .stat .num{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(32px,4vw,44px);
-    letter-spacing:-.02em;
-  }
-  .stat .lbl{
-    margin-top:6px;
-    font-size:13px;
-    color:var(--ink-70);
-  }
+    .hero-app-icon {
+      width: 86px;
+      height: 86px;
+      border-radius: 22px;
+      box-shadow: 
+        0 18px 40px rgba(230, 90, 30, 0.28),
+        0 6px 16px rgba(0, 0, 0, 0.12),
+        0 0 0 1.5px rgba(255, 255, 255, 0.7);
+      display: block;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-  /* ---------- architecture ---------- */
-  .arch{
-    padding:80px 0;
-  }
-  .arch-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:0;
-    border-top:1px solid var(--line);
-    border-left:1px solid var(--line);
-  }
-  @media (max-width:760px){ .arch-grid{grid-template-columns:1fr;} }
-  .arch-cell{
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:32px;
-  }
-  .arch-cell h3{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:19px;
-    letter-spacing:-.01em;
-    margin-bottom:12px;
-  }
-  .arch-cell p{
-    font-size:14px;
-    color:var(--ink-70);
-    line-height:1.6;
-  }
+    .hero-icon-container:hover .hero-app-icon {
+      transform: scale(1.05) translateY(-3px);
+    }
 
-  /* ---------- final cta ---------- */
-  .final{
-    background:var(--surface-ink);
-    color:var(--on-ink);
-    padding:100px 0;
-    text-align:center;
-  }
-  .final h2{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(34px,6vw,58px);
-    letter-spacing:-.025em;
-    margin-bottom:16px;
-  }
-  .final p{
-    font-size:16px;
-    color:var(--on-ink-70);
-    max-width:44ch;
-    margin:0 auto 32px;
-    line-height:1.6;
-  }
-  .final-cta{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    align-items:center;
-    flex-wrap:wrap;
-  }
-  .final .btn-solid{
-    background:var(--paper);
-    color:var(--ink);
-  }
-  .final .btn-solid:hover{background:#C9AD7C;color:var(--ink);}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: var(--bronze-bg);
+      border: 1px solid var(--bronze-border);
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--bronze);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      z-index: 1;
+      position: relative;
+    }
 
-  /* ---------- footer ---------- */
-  footer{
-    padding:36px 28px;
-    text-align:center;
-    font-size:13px;
-    color:var(--ink-50);
-    border-top:1px solid var(--line);
-  }
-</style>
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #E65A1E;
+      box-shadow: 0 0 8px #E65A1E;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9.5vw, 92px);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+      margin-bottom: 12px;
+      background: linear-gradient(180deg, #101114 35%, #42434A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3.8vw, 24px);
+      font-weight: 700;
+      color: #A36A00;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 3vw, 19.5px);
+      line-height: 1.6;
+      color: var(--text-page-secondary);
+      max-width: 660px;
+      margin: 0 auto 36px;
+      font-weight: 450;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 54px;
+      padding: 0 32px;
+      border-radius: var(--radius-full);
+      background: #111114;
+      color: #FFF !important;
+      font-weight: 700;
+      font-size: 15px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-cta:hover {
+      background: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      height: 54px;
+      padding: 0 26px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--text-page);
+      font-weight: 650;
+      font-size: 14.5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-cta-secondary:hover {
+      background: #FFF;
+      border-color: rgba(0, 0, 0, 0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 12.5px;
+      color: var(--text-page-dim);
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      font-weight: 600;
+    }
+
+    /* ─── 3D Device Stage ─── */
+    .device-section {
+      padding: 10px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .device-stage {
+      perspective: 1400px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+      width: 100%;
+    }
+
+    .device-frame {
+      width: min(324px, 86vw);
+      border-radius: 46px;
+      background: #000;
+      padding: 12px;
+      box-shadow:
+        0 0 0 1.5px rgba(255, 255, 255, 0.22),
+        0 0 0 4px #1A1A20,
+        0 30px 75px rgba(0, 0, 0, 0.38),
+        0 8px 24px rgba(0, 0, 0, 0.18);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .device-speaker {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 52px;
+      height: 4.5px;
+      background: #252528;
+      border-radius: 3px;
+      z-index: 10;
+    }
+
+    .device-screen {
+      border-radius: 34px;
+      overflow: hidden;
+      background: #FFF;
+      line-height: 0;
+      aspect-ratio: 9 / 19.5;
+      position: relative;
+    }
+
+    .device-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .screen-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 840px;
+    }
+
+    .screen-tab {
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      color: var(--text-page-secondary);
+      font-size: 13px;
+      font-weight: 650;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .screen-tab:hover {
+      background: rgba(0, 0, 0, 0.09);
+      color: var(--text-page);
+    }
+
+    .screen-tab.active {
+      background: #111114;
+      color: #FFF;
+      border-color: transparent;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ─── Features (The Pillars) ─── */
+    .features {
+      padding: 80px 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 54px;
+    }
+
+    .features-header .kicker {
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--bronze);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .features-header h2 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--text-page);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--card-border-hover);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .feature-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .feature-tag {
+      font-size: 11px;
+      font-weight: 750;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 166, 35, 0.12);
+      border: 1px solid rgba(245, 166, 35, 0.25);
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 750;
+      margin-bottom: 9px;
+      letter-spacing: -0.02em;
+      color: var(--text-card);
+    }
+
+    .feature-card p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-card-secondary);
+    }
+
+    /* ─── Spotlight: Executive Dossier PDF ─── */
+    .spotlight {
+      padding: 30px 20px 80px;
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .spotlight-card {
+      background: linear-gradient(135deg, #11141C 0%, #181D2A 100%);
+      border: 1px solid rgba(245, 166, 35, 0.25);
+      border-radius: 32px;
+      padding: 52px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 0 45px rgba(245, 166, 35, 0.12);
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .spotlight-card {
+        grid-template-columns: 1fr;
+        padding: 36px 24px;
+      }
+    }
+
+    .spotlight-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 166, 35, 0.12);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      color: var(--gold);
+      font-size: 11.5px;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+
+    .spotlight-card h3 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #FFF;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .spotlight-card p {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--text-card-secondary);
+      margin-bottom: 26px;
+    }
+
+    .spotlight-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .spotlight-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14.5px;
+      color: #E2E8F0;
+    }
+
+    .spotlight-bullets li svg {
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .spotlight-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 50px;
+      padding: 0 28px;
+      border-radius: var(--radius-full);
+      background: var(--gold);
+      color: #000;
+      font-weight: 750;
+      font-size: 14.5px;
+      box-shadow: 0 4px 20px rgba(245, 166, 35, 0.38);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(245, 166, 35, 0.52);
+    }
+
+    .spotlight-preview {
+      display: flex;
+      justify-content: center;
+    }
+
+    .spotlight-preview img {
+      max-width: 290px;
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+    }
+
+    /* ─── Gallery ─── */
+    .gallery {
+      padding: 70px 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .gallery-header .kicker {
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--bronze);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .gallery-header h2 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--text-page);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 560px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
+    .gallery-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      cursor: pointer;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-border-hover);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 9 / 19.5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-card .card-label {
+      padding: 12px 14px;
+      border-top: 1px solid var(--card-border);
+      background: var(--card-bg);
+    }
+
+    .gallery-card .card-label h4 {
+      font-size: 13px;
+      font-weight: 750;
+      margin-bottom: 2px;
+      color: var(--text-card);
+    }
+
+    .gallery-card .card-label p {
+      font-size: 11.5px;
+      color: var(--text-card-dim);
+    }
+
+    /* ─── Architecture & Under the Hood ─── */
+    .details {
+      padding: 70px 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .details-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .details-header .kicker {
+      font-size: 12px;
+      font-weight: 750;
+      color: var(--bronze);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .details-header h2 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--text-page);
+    }
+
+    .details-header p {
+      font-size: 16px;
+      color: var(--text-page-secondary);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 10px auto 0;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    @media (max-width: 720px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-cell {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.2s ease;
+    }
+
+    .stat-cell:hover {
+      transform: translateY(-2px);
+    }
+
+    .stat-num {
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-card);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12.5px;
+      color: var(--text-card-dim);
+      font-weight: 600;
+    }
+
+    .detail-blocks {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 22px;
+    }
+
+    @media (max-width: 580px) {
+      .detail-blocks {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .detail-block {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .detail-block h3 {
+      font-size: 17.5px;
+      font-weight: 750;
+      letter-spacing: -0.015em;
+      margin-bottom: 12px;
+      color: var(--text-card);
+    }
+
+    .detail-block p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-card-secondary);
+      margin-bottom: 16px;
+    }
+
+    .detail-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .detail-block li {
+      font-size: 13.5px;
+      color: var(--text-card-secondary);
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+    }
+
+    .detail-block li::before {
+      content: '•';
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    /* ─── Bottom CTA ─── */
+    .cta-section {
+      padding: 40px 20px 90px;
+      max-width: 1140px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .cta-card {
+      background: linear-gradient(180deg, #10121A 0%, #0A0B10 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 32px;
+      padding: 68px 30px;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-card h2 {
+      font-size: clamp(32px, 6vw, 50px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #FFF;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .cta-card p {
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: #94A3B8;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 54px;
+      padding: 0 34px;
+      border-radius: var(--radius-full);
+      background: #FFF;
+      color: #000 !important;
+      font-weight: 750;
+      font-size: 15px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 54px;
+      padding: 0 28px;
+      border-radius: var(--radius-full);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFF !important;
+      font-weight: 650;
+      font-size: 14.5px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cta-btn-outline:hover {
+      border-color: #FFF;
+      transform: translateY(-2px);
+    }
+
+    .cta-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-card-dim);
+      position: relative;
+    }
+
+    /* ─── Sticky Mobile Download Bar ─── */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      z-index: 95;
+      width: calc(100% - 32px);
+      max-width: 400px;
+      padding: 8px 12px;
+      background: rgba(17, 20, 28, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-full);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .mobile-sticky-bar.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 680px) {
+      .mobile-sticky-bar {
+        display: flex;
+      }
+    }
+
+    .mobile-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mobile-bar-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .mobile-bar-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mobile-bar-text h5 {
+      color: #FFF;
+      font-size: 13.5px;
+      font-weight: 750;
+      line-height: 1.2;
+    }
+
+    .mobile-bar-text p {
+      color: var(--text-card-dim);
+      font-size: 11px;
+    }
+
+    .mobile-bar-btn {
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: var(--gold);
+      color: #000;
+      font-size: 12.5px;
+      font-weight: 750;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 36px 20px;
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--text-page-dim);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ─── Lightbox ─── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(16px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+    }
+
+    .lightbox-inner img {
+      width: 100%;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFF;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 44px 16px 36px;
+      }
+      .hero h1 {
+        font-size: 44px;
+      }
+      .hero p {
+        font-size: 15.5px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cta, .hero-cta-secondary {
+        width: 100%;
+      }
+      .nav-inner {
+        padding: 0 16px;
+      }
+      .device-section {
+        padding: 10px 16px 50px;
+      }
+      .device-frame {
+        width: min(290px, 84vw);
+        border-radius: 38px;
+      }
+      .device-screen {
+        border-radius: 28px;
+      }
+      .screen-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .cta-card {
+        padding: 44px 18px;
+        border-radius: 24px;
+      }
+      .cta-buttons {
+        flex-direction: column;
+      }
+      .cta-btn, .cta-btn-outline {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <div class="brand">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-        <rect x="5" y="11" width="14" height="9" rx="1.5"/>
-        <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
-      </svg>
-      Lock In
-    </div>
-    <div class="nav-links">
-      <a href="#pages">Screens</a>
-      <a href="#system">Features</a>
-      <a href="#dossier">Dossier</a>
-      <a href="#architecture">Architecture</a>
-    </div>
-    <a href="lock-in.apk" download class="btn btn-solid">Get the app</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero section wrap">
-  <span class="page-mark">P.01 — Cover</span>
-  <div class="hero-grid">
-    <div>
-      <h1>A standard,<br>not an <em>app.</em></h1>
-      <p class="hero-lede">Lock In is a local-first ledger for the habits, food and focus that make up a disciplined day — kept entirely on your device, in your hands, on your terms.</p>
-      <div class="hero-facts">
-        <p>No cloud. Every entry stays on your device.</p>
-        <p>No subscription. Pay once, own it for good.</p>
-        <p>No accounts. Nothing to sign up for.</p>
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <div class="nav-logo"><img src="logo.png" alt="Lock In Logo" /></div>
+        Lock In
       </div>
-      <div class="hero-cta">
-        <a href="lock-in.apk" download class="btn btn-solid">Download for Android</a>
-        <a href="#dossier" class="btn btn-line">View a sample dossier</a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#device" class="nav-link">Screens</a>
+        <a href="#dossier" class="nav-link">Executive Dossier</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#details" class="nav-link">Architecture</a>
+      </div>
+      <div class="nav-actions">
+        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="nav-btn-secondary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Report PDF
+        </a>
+        <a href="lock-in.apk" download="Lock-In.apk" class="nav-download">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download APK
+        </a>
       </div>
     </div>
-    <div class="hero-side">
-      <p class="quote">&ldquo;Discipline is a ledger you keep with yourself, entry by entry.&rdquo;</p>
-      <p class="quote-attr">Opening line, the Lock In dossier</p>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- DOSSIER PAGE VIEWER -->
-<section class="viewer section wrap" id="pages">
-  <span class="page-mark">P.02 — Contents</span>
-  <div class="viewer-head">
-    <h2>Six pages from<br>a working day.</h2>
-    <p>Every screen in Lock In is built the way a page in a report is built: one subject, plainly laid out, nothing competing for your attention.</p>
-  </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-icon-container">
+      <img src="logo.png" alt="Lock In App Emblem" class="hero-app-icon" />
+    </div>
+    <br/>
+    <div class="hero-badge">v2.5 Release · 100% Sovereign Performance OS</div>
+    <h1>Lock In.</h1>
+    <div class="hero-subtitle">Master the 1% Standard.</div>
+    <p>The sovereign, local-first operating system for body, mind, and discipline. Daily agenda, atomic habits, clinical 43-nutrient nutrition, focus timers, stealth notes vault, and executive performance dossiers — zero cloud, zero telemetry, zero subscriptions.</p>
+    <div class="hero-actions">
+      <a href="lock-in.apk" download="Lock-In.apk" class="hero-cta">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download APK (11.5 MB)
+      </a>
+      <a href="Lock-In-Report-Sample.pdf" target="_blank" class="hero-cta-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Sample Executive Dossier (PDF)
+      </a>
+    </div>
+    <div class="hero-meta">
+      <span>100% Offline</span>
+      <span>Zero Subscriptions</span>
+      <span>IndexedDB Sandboxed</span>
+      <span>Android 8.0+ Ready</span>
+    </div>
+  </section>
 
-  <div class="viewer-body">
-    <div class="tab-list" id="tabList" role="tablist">
-      <button class="tab active" data-page="agenda" role="tab" aria-selected="true"><span>Today's agenda</span><span class="num">i</span></button>
-      <button class="tab" data-page="habits" role="tab" aria-selected="false"><span>Atomic habits</span><span class="num">ii</span></button>
-      <button class="tab" data-page="nutrition" role="tab" aria-selected="false"><span>Nutrient ledger</span><span class="num">iii</span></button>
-      <button class="tab" data-page="focus" role="tab" aria-selected="false"><span>Focus timers</span><span class="num">iv</span></button>
-      <button class="tab" data-page="weight" role="tab" aria-selected="false"><span>Weight & photos</span><span class="num">v</span></button>
-      <button class="tab" data-page="index" role="tab" aria-selected="false"><span>Discipline index</span><span class="num">vi</span></button>
-    </div>
-
-    <div class="page-frame">
-      <div class="page-eyebrow">
-        <span id="pageEyebrowLeft">Lock In — Today</span>
-        <span id="pageEyebrowRight">Page i</span>
-      </div>
-      <div class="page-title" id="pageTitle">Today's agenda</div>
-      <div id="pageArt"></div>
-      <p class="page-caption" id="pageCaption">Tasks, habits, water and calories collapse into one ordered list, so the day starts as a single readable line rather than four separate apps.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURE LEDGER -->
-<section class="ledger section wrap" id="system">
-  <span class="page-mark">P.03 — Index</span>
-  <div class="ledger-head">
-    <h2>Everything the standard requires.</h2>
-    <p>Eight instruments, one ledger. Nothing here is decorative — each earns its place by removing a reason to reach for a different app.</p>
-  </div>
-
-  <div class="ledger-list">
-    <div class="ledger-row">
-      <h3>Today's agenda</h3>
-      <p>Pending tasks, habits, hydration pacing and calories, unified into one ordered list you can drag and resettle by hand.</p>
-    </div>
-    <div class="ledger-row">
-      <h3>Atomic habits <span class="tag">consistency</span></h3>
-      <p>Boolean, quota and fluid targets, plotted across a fourteen-day heat map with custom cadences and a quiet audio check-in.</p>
-    </div>
-    <div class="ledger-row">
-      <h3>Nutrient ledger <span class="tag">43 markers</span></h3>
-      <p>Thirteen vitamins, nine minerals, omega ratios and fibre, matched against your targets from a 2,233-item offline food table.</p>
-    </div>
-    <div class="ledger-row">
-      <h3>Focus & soundscape</h3>
-      <p>Stopwatch, Pomodoro and interval timers held by a foreground service, so nothing drifts when the screen sleeps.</p>
-    </div>
-    <div class="ledger-row">
-      <h3>Notes & stealth vault</h3>
-      <p>A plain notebook with colour tags and checklists, plus a private compartment behind a triple-tap PIN, for what stays yours alone.</p>
-    </div>
-    <div class="ledger-row">
-      <h3>Weight & photo timeline</h3>
-      <p>Daily weight with rate-of-change built in, and a transformation gallery that is stored on-device, never in a bucket somewhere else.</p>
-    </div>
-    <div class="ledger-row">
-      <h3>Home screen widgets</h3>
-      <p>Today's tasks, habit completions and remaining calories, glanceable from the launcher without opening the app at all.</p>
-    </div>
-    <div class="ledger-row">
-      <h3>Thirteen accents, three themes</h3>
-      <p>Light, dark and an OLED-true black, each carried through thirteen hand-picked accents — from olive to café noir to blush.</p>
-    </div>
-  </div>
-</section>
-
-<!-- DOSSIER SPOTLIGHT -->
-<section class="spotlight section" id="dossier">
-  <div class="wrap">
-    <span class="page-mark on-ink">P.04 — Appendix</span>
-    <div class="spotlight-grid">
-      <div>
-        <h2>The thirty-day dossier.</h2>
-        <p class="lede">At the end of each month, Lock In writes up everything — a single publication-grade report, composed on your device, that reads like something a coach would hand you across a desk.</p>
-        <ul class="spotlight-list">
-          <li><span class="mk">i.</span> A discipline readiness score across six lifestyle pillars</li>
-          <li><span class="mk">ii.</span> A full nutrient adequacy breakdown, vitamin by vitamin</li>
-          <li><span class="mk">iii.</span> Two bindings — Onyx Gold for print, Clinical Light for screen</li>
-        </ul>
-        <a href="#" class="btn btn-line on-ink">Download the sample dossier</a>
-      </div>
-      <div class="doc-preview">
-        <div class="seal">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9AD7C" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+  <!-- 3D Interactive Device Stage -->
+  <section class="device-section" id="device">
+    <div style="width: 100%; max-width: 840px; display: flex; flex-direction: column; align-items: center;">
+      <div class="device-stage">
+        <div class="device-frame" id="deviceFrame">
+          <div class="device-speaker"></div>
+          <div class="device-screen">
+            <img id="deviceImg" src="screenshots/today-agenda-light.jpeg" alt="Lock In Today Screen" />
+          </div>
         </div>
-        <div class="dhead">Executive Dossier — Month 03</div>
-        <svg viewBox="0 0 260 200" width="100%" height="auto">
-          <circle cx="130" cy="82" r="52" fill="none" stroke="rgba(242,236,220,0.16)" stroke-width="1"/>
-          <circle cx="130" cy="82" r="36" fill="none" stroke="rgba(242,236,220,0.16)" stroke-width="1"/>
-          <circle cx="130" cy="82" r="20" fill="none" stroke="rgba(242,236,220,0.16)" stroke-width="1"/>
-          <polygon points="130,32 165,60 150,105 110,105 95,60" fill="rgba(201,173,124,0.18)" stroke="#C9AD7C" stroke-width="1.4"/>
-          <g stroke="rgba(242,236,220,0.5)" stroke-width="1">
-            <line x1="10" y1="160" x2="250" y2="160"/>
-            <line x1="10" y1="176" x2="200" y2="176"/>
-            <line x1="10" y1="192" x2="220" y2="192"/>
-          </g>
-        </svg>
+      </div>
+      <div class="screen-tabs">
+        <button class="screen-tab active" data-src="screenshots/today-agenda-light.jpeg">Today Agenda</button>
+        <button class="screen-tab" data-src="screenshots/habits-overview-light.jpeg">Habits Tracker</button>
+        <button class="screen-tab" data-src="screenshots/calories-nutrition-macros-light.jpeg">Nutrition & Macros</button>
+        <button class="screen-tab" data-src="screenshots/notes-vault-light.jpeg">Notes & Vault</button>
+        <button class="screen-tab" data-src="screenshots/timer-intervals-soundscapes-light.jpeg">Focus Timers</button>
+        <button class="screen-tab" data-src="screenshots/photos-gallery-timeline-light.jpeg">Weight & Photos</button>
+        <button class="screen-tab" data-src="screenshots/weekly-insights-analytics-light.jpeg">Discipline Index</button>
+        <button class="screen-tab" data-src="screenshots/settings-theme-customizer-light.jpeg">13 Accents & Themes</button>
+        <button class="screen-tab" data-src="screenshots/executive-pdf-dossier-light-modal.jpeg">Executive PDF</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- STATS -->
-<section class="stats section wrap">
-  <span class="page-mark">P.05 — Figures</span>
-  <div class="stats-row" style="margin-top:26px;">
-    <div class="stat"><div class="num">43</div><div class="lbl">Bioactive nutrients tracked</div></div>
-    <div class="stat"><div class="num">2,233+</div><div class="lbl">Offline verified foods</div></div>
-    <div class="stat"><div class="num">0</div><div class="lbl">Bytes sent to a server</div></div>
-    <div class="stat"><div class="num">100%</div><div class="lbl">Runs on your hardware</div></div>
-  </div>
-</section>
-
-<!-- ARCHITECTURE -->
-<section class="arch section wrap" id="architecture">
-  <span class="page-mark">P.06 — Method</span>
-  <div class="ledger-head" style="margin-top:26px;">
-    <h2>Built to be owned, not rented.</h2>
-    <p>Offline by construction, not as a marketing line. There is no account to lose access to and no server that can go dark on you.</p>
-  </div>
-  <div class="arch-grid">
-    <div class="arch-cell">
-      <h3>Clinical nutrition, not calorie guessing</h3>
-      <p>Thirteen vitamins, nine minerals, omega ratios and fibre, matched against your own profile — with a food table verified against USDA and ICMR data and stored entirely offline.</p>
+  <!-- Spotlight: Executive Dossier PDF -->
+  <section class="spotlight" id="dossier">
+    <div class="spotlight-card">
+      <div class="spotlight-content">
+        <div class="spotlight-badge">Signature Engineering</div>
+        <h3>The 30-Day Executive Performance Dossier</h3>
+        <p>Your complete physical, mental, and nutritional trajectory distilled into an immaculate publication-grade PDF report. Synthesized entirely on your device with client-side jsPDF.</p>
+        <ul class="spotlight-bullets">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Discipline Readiness Index (DRI) score across all 6 lifestyle pillars
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Clinical 43-nutrient adequacy breakdown with vitamin & mineral radars
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Publication styling in Onyx Gold (Dark) and Clinical Minimalist (Light)
+          </li>
+        </ul>
+        <div class="spotlight-actions">
+          <a href="Lock-In-Report-Sample.pdf" target="_blank" class="btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            Download Sample Report (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="spotlight-preview">
+        <img src="screenshots/executive-pdf-dossier-light-modal.jpeg" alt="Executive PDF Dossier Generator" />
+      </div>
     </div>
-    <div class="arch-cell">
-      <h3>Your data never leaves your device</h3>
-      <p>Built on Dexie over IndexedDB. No accounts, no analytics, no telemetry. Weight logs, photos and notes stay in local, sandboxed storage — and export in full whenever you ask.</p>
+  </section>
+
+  <!-- Features (The Pillars) -->
+  <section class="features" id="features">
+    <div class="features-header">
+      <div class="kicker">Core System Architecture</div>
+      <h2>Engineered for absolute standards.</h2>
     </div>
-    <div class="arch-cell">
-      <h3>Native by construction</h3>
-      <p>React, Vite and Capacitor compiled for Android, with timers held by a foreground service so nothing drifts during sleep or Doze mode.</p>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="feature-tag">Daily Hub</span>
+        </div>
+        <h3>Today Agenda</h3>
+        <p>Pending tasks, atomic habits, water hydration pacing, and calorie intake unified into a single friction-free agenda with smooth drag-and-drop ordering.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span class="feature-tag">Consistency</span>
+        </div>
+        <h3>Atomic Habits</h3>
+        <p>Boolean, numeric quota, and fluid target tracking with 14-day consistency heatmaps, custom frequency cadences, and synthesized audio check-in chimes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <span class="feature-tag">43 Nutrients</span>
+        </div>
+        <h3>43-Nutrient Clinical Engine</h3>
+        <p>Precision micronutrient tracking across 13 vitamins, 9 minerals, omega fatty acids, and fiber powered by 2,233+ verified offline USDA and ICMR foods.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="feature-tag">Audio Synthesis</span>
+        </div>
+        <h3>Focus & Procedural Soundscapes</h3>
+        <p>Stopwatch, Pomodoro, and HIIT intervals backed by an Android Foreground Service with procedural real-time soundscapes: Rain, Alpha Waves, and Forest.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <span class="feature-tag">Solid & Stealth</span>
+        </div>
+        <h3>Solid Notes & Stealth Vault</h3>
+        <p>Minimalist notes with Google Keep-inspired full-page editor, solid color presets, checklist conversions, and a private triple-tap PIN keypad stealth vault.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <span class="feature-tag">Encrypted</span>
+        </div>
+        <h3>Weight & Photo Timeline</h3>
+        <p>Daily body weight logging with automated rate-of-change metrics and a sandboxed transformation gallery that never uploads to external cloud buckets.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <span class="feature-tag">Glanceable</span>
+        </div>
+        <h3>Home Screen Widgets</h3>
+        <p>Glanceable native Android widgets for Today tasks, habit completions, and calorie targets directly on your mobile launcher without opening the app.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-top">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <span class="feature-tag">Custom Studio</span>
+        </div>
+        <h3>13 Accents & 3 Themes</h3>
+        <p>macOS Light, Obsidian Dark, and OLED Ultra-Dark with 13 hand-curated accent colors (Blush Petal, Olive Green, Cafe Noir, Ceylanite, Jubilee, and more).</p>
+      </div>
+
     </div>
-    <div class="arch-cell">
-      <h3>Made for the ledger, not the feed</h3>
-      <p>No streaks engineered to guilt you back in. Levels and badges exist to mark real consistency, and the monthly dossier reads it back to you plainly.</p>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-header">
+      <div class="kicker">Interface Gallery</div>
+      <h2>Precision crafted down to the pixel.</h2>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/today-agenda-light.jpeg')">
+        <img src="screenshots/today-agenda-light.jpeg" alt="Today Agenda" loading="lazy" />
+        <div class="card-label"><h4>Today Agenda</h4><p>Unified daily schedule</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/habits-overview-light.jpeg')">
+        <img src="screenshots/habits-overview-light.jpeg" alt="Habits Tracker" loading="lazy" />
+        <div class="card-label"><h4>Atomic Habits</h4><p>14-day consistency rates</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/calories-nutrition-macros-light.jpeg')">
+        <img src="screenshots/calories-nutrition-macros-light.jpeg" alt="Nutrition Engine" loading="lazy" />
+        <div class="card-label"><h4>Nutrition Engine</h4><p>43 bioactives & macros</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/notes-vault-light.jpeg')">
+        <img src="screenshots/notes-vault-light.jpeg" alt="Notes & Vault" loading="lazy" />
+        <div class="card-label"><h4>Solid Notes & Vault</h4><p>Color tagging & PIN vault</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/timer-intervals-soundscapes-light.jpeg')">
+        <img src="screenshots/timer-intervals-soundscapes-light.jpeg" alt="Focus Timer" loading="lazy" />
+        <div class="card-label"><h4>Focus Timers</h4><p>Soundscapes & notifications</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/weekly-insights-analytics-light.jpeg')">
+        <img src="screenshots/weekly-insights-analytics-light.jpeg" alt="Insights & Analytics" loading="lazy" />
+        <div class="card-label"><h4>Analytics & DRI</h4><p>Discipline Readiness Index</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/photos-gallery-timeline-light.jpeg')">
+        <img src="screenshots/photos-gallery-timeline-light.jpeg" alt="Photos & Weight" loading="lazy" />
+        <div class="card-label"><h4>Weight & Photos</h4><p>Encrypted local timeline</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/settings-theme-customizer-light.jpeg')">
+        <img src="screenshots/settings-theme-customizer-light.jpeg" alt="Appearance & Themes" loading="lazy" />
+        <div class="card-label"><h4>Theme Studio</h4><p>13 accents & OLED mode</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/android-widget-tasks-habits.jpeg')">
+        <img src="screenshots/android-widget-tasks-habits.jpeg" alt="Android Widgets" loading="lazy" />
+        <div class="card-label"><h4>Android Widgets</h4><p>Glanceable home screen</p></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Details / Architecture -->
+  <section class="details" id="details">
+    <div class="details-header">
+      <div class="kicker">Under the Hood</div>
+      <h2>Built different. Not just different looking.</h2>
+      <p>Lock In is engineered from first principles as an offline-first sovereign tool. Zero cloud servers, zero external databases, zero user surveillance.</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-num">43</div>
+        <div class="stat-label">Bioactive Nutrients</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2,233+</div>
+        <div class="stat-label">Offline Food Items</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">0</div>
+        <div class="stat-label">External Server Bytes</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Client Hardware Execution</div>
+      </div>
+    </div>
+
+    <div class="detail-blocks">
+      <div class="detail-block">
+        <h3>Clinical-grade nutrition, not just calorie counting</h3>
+        <p>Most fitness apps stop at calories and macros. Lock In tracks 43 bioactives — 13 vitamins, 9 minerals, omega-3/6 ratios, EPA, DHA, fiber, and sodium — with personalized RDA targets based on your biological profile.</p>
+        <ul>
+          <li>USDA and ICMR verified food database works entirely offline</li>
+          <li>Category adequacy scores detect chronic micronutrient gaps</li>
+          <li>Quick-add frequently logged items for sub-3-second daily entries</li>
+        </ul>
+      </div>
+
+      <div class="detail-block">
+        <h3>Your data stays on your device. Period.</h3>
+        <p>Lock In uses Dexie.js over IndexedDB — everything lives in your hardware's local database. No accounts, no sign-ups, no analytics, no telemetry. Your weight logs, photos, and notes never touch the cloud.</p>
+        <ul>
+          <li>Progress photos stored in sandboxed local storage, not a cloud bucket</li>
+          <li>Stealth private vault with triple-tap activation & PIN keypad</li>
+          <li>Full data export so you always maintain complete data ownership</li>
+        </ul>
+      </div>
+
+      <div class="detail-block">
+        <h3>Real native engineering, not a web wrapper</h3>
+        <p>Built with React 19, Vite 5, and Capacitor 8 for native Android performance. Focus timers use an Android Foreground Service to eliminate timer drift during Doze mode and screen sleep.</p>
+        <ul>
+          <li>Zero timer drift during Doze mode and lock screen states</li>
+          <li>Client-side PDF generation with jsPDF — zero server round-trips</li>
+          <li>Hardware camera integration with canvas photo compression</li>
+        </ul>
+      </div>
+
+      <div class="detail-block">
+        <h3>Designed for daily discipline, not engagement tricks</h3>
+        <p>Three visual themes (Light, Dark, Ultra-Dark) with 13 accent colors. Haptic feedback on check-ins. Drag-to-reorder tasks. Gamification with XP, levels, and milestone badges that reward consistency.</p>
+        <ul>
+          <li>Executive PDF dossiers available in both light and dark themes</li>
+          <li>Weekly insights synthesize all 6 domains into a single DRI score</li>
+          <li>Bidirectional note-to-task sync with automatic task cleanup</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <h2>Ready to lock in?</h2>
+      <p>Download once. Own it forever. No accounts, no subscriptions, no ads — just you, your habits, and your standard.</p>
+      <div class="cta-buttons">
+        <a href="lock-in.apk" download="Lock-In.apk" class="cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Lock In APK
+        </a>
+        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="cta-btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          Sample Executive PDF
+        </a>
+      </div>
+      <div class="cta-meta">v2.5 · 11.5 MB · Android 8.0+ · 100% Offline</div>
+    </div>
+  </section>
+
+  <!-- Mobile Sticky Download Bar -->
+  <div class="mobile-sticky-bar" id="mobileBar">
+    <div class="mobile-bar-left">
+      <div class="mobile-bar-icon"><img src="logo.png" alt="Lock In" /></div>
+      <div class="mobile-bar-text">
+        <h5>Lock In</h5>
+        <p>100% Offline · v2.5</p>
+      </div>
+    </div>
+    <a href="lock-in.apk" download="Lock-In.apk" class="mobile-bar-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Get APK
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Lock In · Master the 1% Standard · Sovereign Personal Performance OS</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-inner" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightboxImg" src="" alt="Preview" />
     </div>
   </div>
-</section>
 
-<!-- FINAL CTA -->
-<section class="final section">
-  <span class="page-mark on-ink" style="display:block;margin-bottom:18px;">P.07 — Close</span>
-  <h2>Keep your own ledger.</h2>
-  <p>Download once. Own it for good. No accounts, no subscriptions, no ads — just the record of the standard you're keeping.</p>
-  <div class="final-cta">
-    <a href="lock-in.apk" download class="btn btn-solid">Download Lock In</a>
-    <a href="#dossier" class="btn btn-line on-ink">Sample dossier</a>
-  </div>
-</section>
+  <script>
+    // Interactive 3D Device Screen Switcher
+    document.querySelectorAll(".screen-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".screen-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        const img = document.getElementById("deviceImg");
+        img.style.opacity = "0";
+        setTimeout(() => {
+          img.src = tab.dataset.src;
+          img.style.opacity = "1";
+        }, 150);
+      });
+    });
 
-<footer>
-  Lock In — a personal performance ledger, kept on your own device.
-</footer>
-
-<script>
-  const pages = {
-    agenda: {
-      title: "Today's agenda",
-      eyebrowL: "Lock In — Today",
-      eyebrowR: "Page i",
-      caption: "Tasks, habits, water and calories collapse into one ordered list, so the day starts as a single readable line rather than four separate apps.",
-      art: `<svg viewBox="0 0 480 220" width="100%" height="auto">
-        <g fill="none" stroke="#18160C" stroke-opacity="0.55" stroke-width="1.2">
-          <rect x="0" y="8" width="16" height="16" rx="3"/>
-          <line x1="30" y1="16" x2="300" y2="16"/>
-          <rect x="0" y="48" width="16" height="16" rx="3"/>
-          <line x1="30" y1="56" x2="360" y2="56"/>
-          <rect x="0" y="88" width="16" height="16" rx="3"/>
-          <line x1="30" y1="96" x2="230" y2="96"/>
-        </g>
-        <path d="M2 44 L6 48 L14 40" stroke="#8A6B3E" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <g stroke="#18160C" stroke-opacity="0.25" stroke-width="1.2">
-          <line x1="0" y1="140" x2="480" y2="140"/>
-        </g>
-        <g fill="none" stroke="#8A6B3E" stroke-width="2">
-          <circle cx="30" cy="180" r="20"/>
-        </g>
-        <text x="30" y="185" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#18160C">62%</text>
-        <text x="70" y="176" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.7">Hydration, 1.6 / 2.6 L</text>
-        <text x="70" y="192" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.5">1,340 / 2,100 kcal today</text>
-      </svg>`
-    },
-    habits: {
-      title: "Atomic habits",
-      eyebrowL: "Lock In — Habits",
-      eyebrowR: "Page ii",
-      caption: "Fourteen days of consistency laid out as a grid you can read at a glance — no streak-shaming, just the record as it happened.",
-      art: `<svg viewBox="0 0 480 220" width="100%" height="auto">
-        <g>
-          ${Array.from({length:14}).map((_,c)=>Array.from({length:4}).map((__,r)=>{
-            const x=c*33+4, y=r*30+10;
-            const on = (c*4+r) % 5 !== 0;
-            return `<rect x="${x}" y="${y}" width="24" height="22" rx="2" fill="${on ? '#8A6B3E' : 'none'}" fill-opacity="${on?0.8-r*0.12:0}" stroke="#18160C" stroke-opacity="0.25" stroke-width="1"/>`;
-          }).join('')).join('')}
-        </g>
-        <line x1="0" y1="160" x2="480" y2="160" stroke="#18160C" stroke-opacity="0.2"/>
-        <text x="0" y="185" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.7">Morning pages · 11 of 14 days held</text>
-        <text x="0" y="203" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.5">Custom cadence · weekday only</text>
-      </svg>`
-    },
-    nutrition: {
-      title: "Nutrient ledger",
-      eyebrowL: "Lock In — Nutrition",
-      eyebrowR: "Page iii",
-      caption: "Macro rings sit above the same 43-nutrient breakdown that ends up in your monthly dossier, so nothing is calculated twice.",
-      art: `<svg viewBox="0 0 480 220" width="100%" height="auto">
-        <g transform="translate(80,90)">
-          <circle r="60" fill="none" stroke="#18160C" stroke-opacity="0.12" stroke-width="10"/>
-          <circle r="60" fill="none" stroke="#8A6B3E" stroke-width="10" stroke-dasharray="280 377" stroke-linecap="round" transform="rotate(-90)"/>
-          <circle r="44" fill="none" stroke="#18160C" stroke-opacity="0.12" stroke-width="10"/>
-          <circle r="44" fill="none" stroke="#18160C" stroke-opacity="0.55" stroke-width="10" stroke-dasharray="180 276" stroke-linecap="round" transform="rotate(-90)"/>
-        </g>
-        <g stroke="#18160C" stroke-opacity="0.35" stroke-width="1.2">
-          <line x1="220" y1="46" x2="470" y2="46"/>
-          <line x1="220" y1="70" x2="440" y2="70"/>
-          <line x1="220" y1="94" x2="460" y2="94"/>
-          <line x1="220" y1="118" x2="410" y2="118"/>
-          <line x1="220" y1="142" x2="450" y2="142"/>
-        </g>
-        <text x="0" y="185" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.7">Protein 128g · Carbs 210g · Fat 58g</text>
-        <text x="0" y="203" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.5">Vitamin D and iron below target this week</text>
-      </svg>`
-    },
-    focus: {
-      title: "Focus timers",
-      eyebrowL: "Lock In — Focus",
-      eyebrowR: "Page iv",
-      caption: "A single ring, a single number, and a foreground service holding the count so it survives a locked screen without drifting.",
-      art: `<svg viewBox="0 0 480 220" width="100%" height="auto">
-        <g transform="translate(110,100)">
-          <circle r="70" fill="none" stroke="#18160C" stroke-opacity="0.12" stroke-width="8"/>
-          <circle r="70" fill="none" stroke="#8A6B3E" stroke-width="8" stroke-dasharray="330 440" stroke-linecap="round" transform="rotate(-90)"/>
-          <text x="0" y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="26" fill="#18160C">18:42</text>
-        </g>
-        <g stroke="#18160C" stroke-opacity="0.3" stroke-width="1.2">
-          <line x1="250" y1="60" x2="470" y2="60"/>
-          <line x1="250" y1="84" x2="420" y2="84"/>
-        </g>
-        <text x="250" y="120" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.7">Deep work · Pomodoro 3 of 4</text>
-        <text x="250" y="138" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.5">Soundscape · low rain</text>
-      </svg>`
-    },
-    weight: {
-      title: "Weight & photos",
-      eyebrowL: "Lock In — Progress",
-      eyebrowR: "Page v",
-      caption: "A plain trend line and rate-of-change, alongside a photo timeline that never leaves the sandboxed storage on your own device.",
-      art: `<svg viewBox="0 0 480 220" width="100%" height="auto">
-        <polyline points="0,120 60,110 120,118 180,96 240,102 300,80 360,86 420,64 480,70" fill="none" stroke="#8A6B3E" stroke-width="2"/>
-        <g fill="#8A6B3E"><circle cx="0" cy="120" r="3"/><circle cx="120" cy="118" r="3"/><circle cx="240" cy="102" r="3"/><circle cx="360" cy="86" r="3"/><circle cx="480" cy="70" r="3"/></g>
-        <line x1="0" y1="160" x2="480" y2="160" stroke="#18160C" stroke-opacity="0.2"/>
-        <g fill="none" stroke="#18160C" stroke-opacity="0.4" stroke-width="1.2">
-          <rect x="0" y="180" width="26" height="34" rx="2"/>
-          <rect x="34" y="180" width="26" height="34" rx="2"/>
-          <rect x="68" y="180" width="26" height="34" rx="2"/>
-        </g>
-        <text x="120" y="200" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.7">-3.4 kg over 9 weeks</text>
-      </svg>`
-    },
-    index: {
-      title: "Discipline index",
-      eyebrowL: "Lock In — Weekly",
-      eyebrowR: "Page vi",
-      caption: "Six pillars — sleep, movement, nutrition, focus, notes and mood — folded into one weekly index that also opens the monthly dossier.",
-      art: `<svg viewBox="0 0 480 220" width="100%" height="auto">
-        <g>
-          ${['Sleep','Move','Food','Focus','Notes','Mood'].map((label,i)=>{
-            const w=[62,80,48,74,56,70][i];
-            const y=i*30+6;
-            return `<text x="0" y="${y+13}" font-family="IBM Plex Sans" font-size="12" fill="#18160C" opacity="0.7">${label}</text>
-                    <rect x="70" y="${y}" width="380" height="16" rx="2" fill="#18160C" fill-opacity="0.08"/>
-                    <rect x="70" y="${y}" width="${w*4}" height="16" rx="2" fill="#8A6B3E"/>`;
-          }).join('')}
-        </g>
-        <text x="0" y="205" font-family="Fraunces" font-style="italic" font-size="15" fill="#18160C">Discipline Readiness — 74 of 100</text>
-      </svg>`
+    // 3D Perspective Tilt on Mouse Movement
+    const frame = document.getElementById("deviceFrame");
+    const stage = document.querySelector(".device-stage");
+    if (stage && frame && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      stage.addEventListener("mousemove", e => {
+        const r = stage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        frame.style.transform = "rotateY(" + (x * 14) + "deg) rotateX(" + (-y * 14) + "deg)";
+      });
+      stage.addEventListener("mouseleave", () => {
+        frame.style.transform = "";
+      });
     }
-  };
 
-  const tabList = document.getElementById('tabList');
-  const pageTitle = document.getElementById('pageTitle');
-  const pageArt = document.getElementById('pageArt');
-  const pageCaption = document.getElementById('pageCaption');
-  const eyebrowL = document.getElementById('pageEyebrowLeft');
-  const eyebrowR = document.getElementById('pageEyebrowRight');
+    // Lightbox modal for gallery screenshots
+    function openLightbox(src) {
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightbox").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 
-  function renderPage(key){
-    const p = pages[key];
-    pageTitle.textContent = p.title;
-    pageArt.innerHTML = p.art;
-    pageCaption.textContent = p.caption;
-    eyebrowL.textContent = p.eyebrowL;
-    eyebrowR.textContent = p.eyebrowR;
-  }
-
-  tabList.addEventListener('click', (e) => {
-    const btn = e.target.closest('.tab');
-    if(!btn) return;
-    tabList.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected','true');
-    renderPage(btn.dataset.page);
-  });
-
-  renderPage('agenda');
-</script>
-
+    // Mobile sticky bar appears after scrolling past hero
+    const mobileBar = document.getElementById("mobileBar");
+    const heroSection = document.querySelector(".hero");
+    if (mobileBar && heroSection) {
+      window.addEventListener("scroll", () => {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          mobileBar.classList.add("visible");
+        } else {
+          mobileBar.classList.remove("visible");
+        }
+      }, { passive: true });
+    }
+  </script>
 </body>
 </html>
