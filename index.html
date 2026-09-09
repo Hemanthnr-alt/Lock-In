@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Lock In — Master the 1% Standard</title>
-  <meta name="description" content="The complete local-first personal performance engine. Habits, nutrition, weight tracking, focus timers, and executive PDF reports — 100% offline." />
+  <meta name="description" content="The complete local-first personal performance engine. Habits, nutrition, weight tracking, focus timers, notes vault, and executive PDF reports — 100% offline." />
   <meta name="theme-color" content="#EDE8E1" />
   <meta property="og:title" content="Lock In — Master the 1% Standard" />
   <meta property="og:description" content="100% Offline. Zero Subscriptions. The complete operating system for body, mind, and discipline." />
@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
     :root {
@@ -75,7 +76,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* ── Top Nav ───────────────────────────────────────────── */
+    /* Top Nav */
     nav {
       position: sticky;
       top: 0;
@@ -90,10 +91,10 @@
     }
 
     .nav-inner {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 20px;
-      height: 56px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -105,15 +106,15 @@
       align-items: center;
       gap: 10px;
       font-weight: 800;
-      font-size: 16.5px;
+      font-size: 17px;
       letter-spacing: -0.02em;
       color: var(--text-page);
     }
 
     .nav-logo {
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
       background: #000;
       border: 1px solid rgba(0, 0, 0, 0.12);
       overflow: hidden;
@@ -123,9 +124,58 @@
     }
 
     .nav-logo img {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-page-secondary);
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover {
+      color: var(--text-page);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn-secondary {
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--text-page);
+      font-weight: 600;
+      font-size: 12.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
     }
 
     .nav-download {
@@ -148,10 +198,10 @@
       transform: translateY(-1px);
     }
 
-    /* ── Hero ──────────────────────────────────────────────── */
+    /* Hero */
     .hero {
       position: relative;
-      padding: 90px 20px 50px;
+      padding: 80px 20px 45px;
       text-align: center;
       max-width: 1080px;
       margin: 0 auto;
@@ -184,7 +234,7 @@
       color: var(--bronze);
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .hero-badge::before {
@@ -202,7 +252,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(44px, 10vw, 92px);
+      font-size: clamp(46px, 10vw, 94px);
       font-weight: 800;
       letter-spacing: -0.045em;
       line-height: 0.96;
@@ -214,10 +264,10 @@
     }
 
     .hero p {
-      font-size: clamp(15.5px, 3.2vw, 19.5px);
+      font-size: clamp(16px, 3.2vw, 20px);
       line-height: 1.55;
       color: var(--text-page-secondary);
-      max-width: 540px;
+      max-width: 620px;
       margin: 0 auto 34px;
       font-weight: 400;
     }
@@ -226,9 +276,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
 
     .hero-cta {
@@ -236,21 +286,21 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      height: 50px;
-      padding: 0 28px;
+      height: 52px;
+      padding: 0 30px;
       border-radius: 980px;
       background: #111113;
       color: #FFF !important;
       font-weight: 600;
       font-size: 15px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero-cta:hover {
       background: #000;
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.26);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
     }
 
     .hero-cta-secondary {
@@ -258,35 +308,35 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      height: 50px;
-      padding: 0 26px;
+      height: 52px;
+      padding: 0 24px;
       border-radius: 980px;
-      background: #FFF;
+      background: rgba(255, 255, 255, 0.85);
       border: 1px solid rgba(0, 0, 0, 0.12);
       color: var(--text-page);
       font-weight: 600;
-      font-size: 15px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      font-size: 14.5px;
       transition: all 0.2s;
     }
 
     .hero-cta-secondary:hover {
-      border-color: rgba(0, 0, 0, 0.22);
-      transform: translateY(-1px);
+      background: #FFF;
+      border-color: rgba(0, 0, 0, 0.24);
+      transform: translateY(-2px);
     }
 
     .hero-meta {
-      margin-top: 20px;
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 20px;
       font-size: 13px;
       color: var(--text-page-dim);
+      flex-wrap: wrap;
     }
 
     .hero-meta span {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
     }
@@ -299,48 +349,47 @@
       background: var(--text-page-dim);
     }
 
-    /* ── 3D Device Stage ───────────────────────────────────── */
+    /* 3D Device Stage */
     .device-section {
-      padding: 20px 20px 80px;
+      padding: 10px 20px 70px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
-      max-width: 100vw;
       box-sizing: border-box;
-      overflow-x: hidden;
     }
 
     .device-stage {
-      position: relative;
       perspective: 1400px;
       display: flex;
       justify-content: center;
+      margin-bottom: 26px;
       width: 100%;
-      max-width: 100%;
     }
 
     .device-frame {
-      width: min(304px, 86vw);
-      height: min(630px, 178vw);
-      background: #08080A;
-      border-radius: 42px;
-      padding: 10px;
-      border: 2px solid rgba(0, 0, 0, 0.25);
+      width: min(320px, 86vw);
+      border-radius: 44px;
+      background: #000;
+      padding: 11px;
       box-shadow:
-        0 45px 110px -20px rgba(0, 0, 0, 0.35),
-        0 24px 50px -15px rgba(0, 0, 0, 0.20),
-        0 0 0 1px rgba(255, 255, 255, 0.12) inset;
-      transition: transform 0.12s ease-out;
+        0 0 0 1.5px rgba(255, 255, 255, 0.18),
+        0 0 0 4px #1A1A1E,
+        0 24px 64px rgba(0, 0, 0, 0.35),
+        0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+      position: relative;
       box-sizing: border-box;
     }
 
     .device-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 32px;
+      border-radius: 34px;
       overflow: hidden;
+      background: #FFF;
+      line-height: 0;
+      aspect-ratio: 9 / 19.5;
       position: relative;
-      background: #000;
     }
 
     .device-screen img {
@@ -348,48 +397,45 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.2s ease-in-out;
     }
 
     .screen-tabs {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-top: 26px;
-      max-width: 100%;
-      box-sizing: border-box;
+      max-width: 760px;
     }
 
     .screen-tab {
-      padding: 7px 14px;
+      padding: 7px 15px;
       border-radius: 999px;
-      background: #FFF;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.06);
+      border: 1px solid transparent;
       color: var(--text-page-secondary);
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-      transition: all 0.15s;
+      transition: all 0.2s;
     }
 
     .screen-tab:hover {
+      background: rgba(0, 0, 0, 0.1);
       color: var(--text-page);
-      border-color: rgba(0, 0, 0, 0.2);
     }
 
     .screen-tab.active {
       background: #111113;
       color: #FFF;
-      border-color: #111113;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
     }
 
-    /* ── Features (6 Pillars in Sleek Dark Cards) ─────────── */
+    /* Features */
     .features {
       padding: 80px 20px;
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       width: 100%;
       box-sizing: border-box;
@@ -397,7 +443,7 @@
 
     .features-header {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 50px;
     }
 
     .features-header .kicker {
@@ -418,45 +464,40 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 820px) {
-      .features-grid { grid-template-columns: 1fr; }
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
     }
 
     .feature-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
-      padding: 30px 26px;
+      padding: 30px;
       box-shadow: var(--card-shadow);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     }
 
     .feature-card:hover {
-      background: var(--card-bg-elevated);
+      transform: translateY(-4px);
       border-color: var(--card-border-hover);
-      transform: translateY(-3px);
       box-shadow: var(--card-shadow-hover);
     }
 
     .feature-icon {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       color: var(--gold);
     }
 
     .feature-card h3 {
-      font-size: 16.5px;
+      font-size: 17px;
       font-weight: 700;
       margin-bottom: 8px;
       letter-spacing: -0.015em;
@@ -469,10 +510,131 @@
       color: var(--text-card-secondary);
     }
 
-    /* ── Gallery (Sleek Dark Cards) ────────────────────────── */
+    /* Spotlight Section */
+    .spotlight {
+      padding: 40px 20px 80px;
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .spotlight-card {
+      background: linear-gradient(135deg, #11141C 0%, #171C28 100%);
+      border: 1px solid rgba(245, 166, 35, 0.25);
+      border-radius: 28px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(245, 166, 35, 0.1);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .spotlight-card {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+      }
+    }
+
+    .spotlight-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(245, 166, 35, 0.12);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      color: var(--gold);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 18px;
+    }
+
+    .spotlight-card h3 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #FFF;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .spotlight-card p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-card-secondary);
+      margin-bottom: 24px;
+    }
+
+    .spotlight-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .spotlight-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #E2E8F0;
+    }
+
+    .spotlight-bullets li svg {
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .spotlight-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 4px 18px rgba(245, 166, 35, 0.35);
+      transition: all 0.2s;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245, 166, 35, 0.5);
+    }
+
+    .spotlight-preview {
+      display: flex;
+      justify-content: center;
+    }
+
+    .spotlight-preview img {
+      max-width: 280px;
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Gallery */
     .gallery {
       padding: 70px 20px;
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       width: 100%;
       box-sizing: border-box;
@@ -501,7 +663,7 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: 16px;
     }
 
@@ -530,7 +692,7 @@
 
     .gallery-card img {
       width: 100%;
-      aspect-ratio: 9 / 19;
+      aspect-ratio: 9 / 19.5;
       object-fit: cover;
       display: block;
     }
@@ -553,10 +715,10 @@
       color: var(--text-card-dim);
     }
 
-    /* ── Details (Under the Hood in Sleek Dark Cards) ────────── */
+    /* Details */
     .details {
       padding: 70px 20px;
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       width: 100%;
       box-sizing: border-box;
@@ -587,148 +749,142 @@
       font-size: 16px;
       color: var(--text-page-secondary);
       line-height: 1.6;
-      max-width: 600px;
+      max-width: 620px;
       margin: 10px auto 0;
     }
 
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 14px;
       margin-bottom: 32px;
     }
 
-    @media (max-width: 640px) {
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 680px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .stat-cell {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 24px 16px;
+      border-radius: var(--radius);
+      padding: 22px 18px;
       text-align: center;
       box-shadow: var(--card-shadow);
-      transition: border-color 0.2s;
     }
 
-    .stat-cell:hover {
-      border-color: var(--card-border-hover);
-    }
-
-    .stat-cell .stat-num {
-      font-size: 32px;
+    .stat-num {
+      font-size: clamp(26px, 4vw, 36px);
       font-weight: 800;
       letter-spacing: -0.03em;
-      margin-bottom: 4px;
       color: var(--text-card);
+      margin-bottom: 4px;
     }
 
-    .stat-cell .stat-label {
-      font-size: 12.5px;
-      color: var(--text-card-secondary);
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-card-dim);
       font-weight: 500;
     }
 
     .detail-blocks {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 20px;
     }
 
-    @media (max-width: 768px) {
-      .detail-blocks { grid-template-columns: 1fr; }
+    @media (max-width: 580px) {
+      .detail-blocks {
+        grid-template-columns: 1fr;
+      }
     }
 
     .detail-block {
-      padding: 28px 24px;
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
-      background: var(--card-bg);
+      padding: 30px;
       box-shadow: var(--card-shadow);
-      transition: all 0.2s;
-    }
-
-    .detail-block:hover {
-      border-color: var(--card-border-hover);
-      transform: translateY(-2px);
     }
 
     .detail-block h3 {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
-      margin-bottom: 8px;
       letter-spacing: -0.015em;
+      margin-bottom: 10px;
       color: var(--text-card);
     }
 
     .detail-block p {
-      font-size: 13.5px;
-      color: var(--text-card-secondary);
+      font-size: 14px;
       line-height: 1.6;
+      color: var(--text-card-secondary);
+      margin-bottom: 14px;
     }
 
     .detail-block ul {
       list-style: none;
-      margin-top: 12px;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
 
-    .detail-block ul li {
-      font-size: 13px;
+    .detail-block li {
+      font-size: 13.5px;
       color: var(--text-card-secondary);
       display: flex;
-      align-items: flex-start;
+      align-items: baseline;
       gap: 8px;
     }
 
-    .detail-block ul li::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 7px;
+    .detail-block li::before {
+      content: '•';
+      color: var(--gold);
+      font-weight: bold;
     }
 
-    /* ── Bottom CTA (Obsidian Card on Off-White Canvas) ───────── */
+    /* Bottom CTA */
     .cta-section {
-      padding: 80px 20px 90px;
-      max-width: 860px;
+      padding: 40px 20px 80px;
+      max-width: 1120px;
       margin: 0 auto;
       width: 100%;
       box-sizing: border-box;
     }
 
     .cta-card {
-      background: radial-gradient(circle at 50% 0%, rgba(245, 166, 35, 0.12) 0%, #11141C 75%);
-      border: 1px solid var(--card-border);
-      border-radius: 26px;
-      padding: 48px 24px;
+      background: #0D0F16;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 64px 30px;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-      box-sizing: border-box;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     }
 
     .cta-card h2 {
-      font-size: clamp(26px, 5.5vw, 42px);
+      font-size: clamp(30px, 6vw, 48px);
       font-weight: 800;
       letter-spacing: -0.035em;
-      margin-bottom: 12px;
       color: #FFF;
+      margin-bottom: 14px;
     }
 
     .cta-card p {
-      font-size: 15.5px;
-      color: var(--text-card-secondary);
+      font-size: 16px;
       line-height: 1.6;
-      margin-bottom: 30px;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      color: #94A3B8;
+      max-width: 540px;
+      margin: 0 auto 30px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .cta-btn {
@@ -736,15 +892,14 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      height: 50px;
-      padding: 0 30px;
-      border-radius: 999px;
+      height: 52px;
+      padding: 0 32px;
+      border-radius: 980px;
       background: #FFF;
-      color: #111113 !important;
+      color: #000 !important;
       font-weight: 700;
       font-size: 15px;
-      box-shadow: 0 4px 18px rgba(255, 255, 255, 0.16);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.2s;
     }
 
     .cta-btn:hover {
@@ -752,24 +907,45 @@
       box-shadow: 0 8px 28px rgba(255, 255, 255, 0.26);
     }
 
+    .cta-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 52px;
+      padding: 0 26px;
+      border-radius: 980px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFF !important;
+      font-weight: 600;
+      font-size: 14.5px;
+      transition: all 0.2s;
+    }
+
+    .cta-btn-outline:hover {
+      border-color: #FFF;
+      transform: translateY(-2px);
+    }
+
     .cta-meta {
-      margin-top: 16px;
+      margin-top: 18px;
       font-size: 12.5px;
       color: var(--text-card-dim);
     }
 
-    /* ── Footer ────────────────────────────────────────────── */
+    /* Footer */
     footer {
       border-top: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 30px 20px;
+      padding: 32px 20px;
       text-align: center;
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--text-page-dim);
       width: 100%;
       box-sizing: border-box;
     }
 
-    /* ── Lightbox ──────────────────────────────────────────── */
+    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
@@ -804,23 +980,22 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.2);
       color: #FFF;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* ── Mobile Optimization Rules ─────────────────────────── */
     @media (max-width: 480px) {
       .hero {
-        padding: 64px 16px 36px;
+        padding: 56px 16px 36px;
       }
       .hero h1 {
         font-size: 42px;
@@ -831,7 +1006,7 @@
       .hero-actions {
         flex-direction: column;
         width: 100%;
-        max-width: 290px;
+        max-width: 300px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -842,10 +1017,10 @@
         padding: 0 16px;
       }
       .device-section {
-        padding: 10px 16px 60px;
+        padding: 10px 16px 50px;
       }
       .device-frame {
-        width: min(280px, 82vw);
+        width: min(290px, 84vw);
         border-radius: 36px;
       }
       .device-screen {
@@ -856,12 +1031,15 @@
         font-size: 12px;
       }
       .cta-card {
-        padding: 36px 16px;
+        padding: 40px 16px;
         border-radius: 20px;
       }
-      .cta-btn {
+      .cta-buttons {
+        flex-direction: column;
+      }
+      .cta-btn, .cta-btn-outline {
         width: 100%;
-        max-width: 270px;
+        max-width: 290px;
       }
     }
   </style>
@@ -875,160 +1053,237 @@
         <div class="nav-logo"><img src="logo.png" alt="Lock In" /></div>
         Lock In
       </div>
-      <a href="lock-in.apk" download="Lock-In.apk" class="nav-download">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download
-      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#dossier" class="nav-link">Executive Dossier</a>
+        <a href="#gallery" class="nav-link">Screenshots</a>
+        <a href="#details" class="nav-link">Architecture</a>
+      </div>
+      <div class="nav-actions">
+        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="nav-btn-secondary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Report PDF
+        </a>
+        <a href="lock-in.apk" download="Lock-In.apk" class="nav-download">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download APK
+        </a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-badge">Master the 1% Standard</div>
+    <div class="hero-badge">v2.5 Release · 100% Local-First Performance OS</div>
     <h1>Lock In.</h1>
-    <p>Habits, nutrition, weight tracking, focus timers, and executive reports — unified in one app that never needs the internet.</p>
+    <p>The complete local-first operating system for body, mind, and discipline. Daily agenda, atomic habits, clinical 43-nutrient nutrition, stealth notes, and executive dossiers — zero cloud, zero subscriptions.</p>
     <div class="hero-actions">
       <a href="lock-in.apk" download="Lock-In.apk" class="hero-cta">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download APK
+        Download APK (11.5 MB)
       </a>
-      <a href="#features" class="hero-cta-secondary">Learn more</a>
+      <a href="Lock-In-Report-Sample.pdf" target="_blank" class="hero-cta-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        View Sample Executive Dossier (PDF)
+      </a>
     </div>
     <div class="hero-meta">
       <span>100% Offline</span>
       <span>Zero Subscriptions</span>
+      <span>IndexedDB Sandboxed</span>
       <span>Android 8.0+</span>
     </div>
   </section>
 
   <!-- 3D Device Stage -->
   <section class="device-section">
-    <div style="width: 100%; max-width: 680px;">
+    <div style="width: 100%; max-width: 760px;">
       <div class="device-stage">
         <div class="device-frame" id="deviceFrame">
           <div class="device-screen">
-            <img id="deviceImg" src="screenshots/today-agenda-light.jpeg" alt="Lock In" />
+            <img id="deviceImg" src="screenshots/today-agenda-light.jpeg" alt="Lock In Today Screen" />
           </div>
         </div>
       </div>
       <div class="screen-tabs">
-        <button class="screen-tab active" data-src="screenshots/today-agenda-light.jpeg">Today</button>
-        <button class="screen-tab" data-src="screenshots/habits-discipline-tracker-dark.jpeg">Habits</button>
-        <button class="screen-tab" data-src="screenshots/calories-nutrition-macros-light.jpeg">Nutrition</button>
-        <button class="screen-tab" data-src="screenshots/photos-gallery-timeline-light.jpeg">Photos</button>
-        <button class="screen-tab" data-src="screenshots/timer-intervals-soundscapes-light.jpeg">Focus</button>
-        <button class="screen-tab" data-src="screenshots/weekly-insights-analytics-light.jpeg">Insights</button>
-        <button class="screen-tab" data-src="screenshots/executive-pdf-dossier-light-modal.jpeg">PDF Report</button>
+        <button class="screen-tab active" data-src="screenshots/today-agenda-light.jpeg">Today Agenda</button>
+        <button class="screen-tab" data-src="screenshots/habits-overview-light.jpeg">Habits Tracker</button>
+        <button class="screen-tab" data-src="screenshots/calories-nutrition-macros-light.jpeg">Nutrition & Macros</button>
+        <button class="screen-tab" data-src="screenshots/timer-intervals-soundscapes-light.jpeg">Focus Timers</button>
+        <button class="screen-tab" data-src="screenshots/photos-gallery-timeline-light.jpeg">Weight & Photos</button>
+        <button class="screen-tab" data-src="screenshots/weekly-insights-analytics-light.jpeg">Discipline Index</button>
+        <button class="screen-tab" data-src="screenshots/settings-theme-customizer-light.jpeg">13 Accents & Themes</button>
+        <button class="screen-tab" data-src="screenshots/executive-pdf-dossier-light-modal.jpeg">Executive PDF</button>
       </div>
     </div>
   </section>
 
-  <!-- Features (The 6 Pillars in Sleek Dark Cards) -->
+  <!-- Spotlight: Executive Dossier PDF -->
+  <section class="spotlight" id="dossier">
+    <div class="spotlight-card">
+      <div class="spotlight-content">
+        <div class="spotlight-badge">Signature Feature</div>
+        <h3>The 30-Day Executive Performance Dossier</h3>
+        <p>Your complete physical, mental, and nutritional trajectory distilled into an immaculate publication-grade PDF report. Synthesized entirely on your device with client-side jsPDF.</p>
+        <ul class="spotlight-bullets">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Discipline Readiness Index (DRI) score across all 6 domains
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Clinical 43-nutrient adequacy breakdown with vitamin & mineral radars
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Available in Onyx Gold (dark) and Clinical Minimalist (light) styling
+          </li>
+        </ul>
+        <div class="spotlight-actions">
+          <a href="Lock-In-Report-Sample.pdf" target="_blank" class="btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+            Download Sample Report (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="spotlight-preview">
+        <img src="screenshots/executive-pdf-dossier-light-modal.jpeg" alt="Executive PDF Dossier Generator" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features (Eight Pillars) -->
   <section class="features" id="features">
     <div class="features-header">
-      <div class="kicker">Six Pillars</div>
-      <h2>Everything you need. Nothing you don't.</h2>
+      <div class="kicker">Core Pillars</div>
+      <h2>Engineered for total discipline.</h2>
     </div>
     <div class="features-grid">
 
       <div class="feature-card">
         <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
         <h3>Today Agenda</h3>
-        <p>Tasks, habits, water intake, and workouts unified into a single daily stream you can reorder with a drag.</p>
+        <p>Pending tasks, atomic habits, water tracking, and calorie pacing unified in a single friction-free daily agenda with drag reordering.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
         <h3>Atomic Habits</h3>
-        <p>Boolean, numeric, and fluid habit types with rolling consistency rates, streak records, and mastery rewards.</p>
+        <p>Boolean, numeric quota, and fluid target tracking with 14-day consistency heatmaps, streak logs, and synthesized audio confirmation.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
         </div>
-        <h3>43-Nutrient Tracking</h3>
-        <p>Clinical-grade calorie and micronutrient tracking across vitamins, minerals, and lipids from 2,233+ offline foods.</p>
+        <h3>43-Nutrient Clinical Engine</h3>
+        <p>Precision micronutrient tracking across 13 vitamins, 9 minerals, omega fatty acids, and fiber powered by 2,233+ offline foods.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3>Weight & Photos</h3>
-        <p>Daily weight logging, body fat percentage, and transformation photos stored locally in an encrypted timeline.</p>
+        <h3>Focus & Procedural Soundscapes</h3>
+        <p>Stopwatch, Pomodoro, and HIIT intervals with an Android Foreground Service and real-time audio soundscapes: Rain, Alpha Waves, and Forest.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </div>
-        <h3>Focus & Soundscapes</h3>
-        <p>Stopwatch, countdown, intervals, and Pomodoro with synthesized rainstorm, binaural 40Hz Alpha, and forest audio.</p>
+        <h3>Weight & Photo Timeline</h3>
+        <p>Daily weight logging with automated rate-of-change metrics and a private body transformation gallery saved in sandboxed IndexedDB.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         </div>
-        <h3>Executive PDF Reports</h3>
-        <p>Generate 30-day performance dossiers covering habits, nutrition, weight, and focus — downloadable in light or dark theme.</p>
+        <h3>Google Notes & Stealth Vault</h3>
+        <p>Minimalist notes with color labeling and checklists. One-tap sync to tasks with auto-cleanup, plus a triple-tap PIN keypad stealth vault.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Home Screen Widgets</h3>
+        <p>Native glanceable Android home screen widgets for Today tasks, habit completions, and calorie targets without launching the app.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3>13 Accents & 3 Themes</h3>
+        <p>macOS Light, macOS Dark, and OLED Ultra-Dark with 13 curated accent colors (Jubilee, Blush Petal, Olive, Ceylanite, and more).</p>
       </div>
 
     </div>
   </section>
 
-  <!-- Gallery (Screens in Sleek Dark Cards) -->
-  <section class="gallery">
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
     <div class="gallery-header">
-      <div class="kicker">Interface</div>
-      <h2>Every screen, considered.</h2>
+      <div class="kicker">Interface Gallery</div>
+      <h2>Every screen, crafted for clarity.</h2>
     </div>
     <div class="gallery-grid">
 
       <div class="gallery-card" onclick="openLightbox('screenshots/today-agenda-light.jpeg')">
-        <img src="screenshots/today-agenda-light.jpeg" alt="Today" loading="lazy" />
-        <div class="card-label"><h4>Today Agenda</h4><p>Daily dashboard</p></div>
+        <img src="screenshots/today-agenda-light.jpeg" alt="Today Agenda" loading="lazy" />
+        <div class="card-label"><h4>Today Agenda</h4><p>Unified daily schedule</p></div>
       </div>
 
-      <div class="gallery-card" onclick="openLightbox('screenshots/habits-discipline-tracker-dark.jpeg')">
-        <img src="screenshots/habits-discipline-tracker-dark.jpeg" alt="Habits" loading="lazy" />
-        <div class="card-label"><h4>Habit Tracker</h4><p>Streaks & consistency</p></div>
+      <div class="gallery-card" onclick="openLightbox('screenshots/habits-overview-light.jpeg')">
+        <img src="screenshots/habits-overview-light.jpeg" alt="Habits Tracker" loading="lazy" />
+        <div class="card-label"><h4>Atomic Habits</h4><p>14-day consistency rates</p></div>
       </div>
 
       <div class="gallery-card" onclick="openLightbox('screenshots/calories-nutrition-macros-light.jpeg')">
-        <img src="screenshots/calories-nutrition-macros-light.jpeg" alt="Nutrition" loading="lazy" />
-        <div class="card-label"><h4>Nutrition Engine</h4><p>43 micronutrients</p></div>
-      </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/photos-gallery-timeline-light.jpeg')">
-        <img src="screenshots/photos-gallery-timeline-light.jpeg" alt="Photos" loading="lazy" />
-        <div class="card-label"><h4>Weight & Photos</h4><p>Body transformation diary</p></div>
+        <img src="screenshots/calories-nutrition-macros-light.jpeg" alt="Nutrition Engine" loading="lazy" />
+        <div class="card-label"><h4>Nutrition Engine</h4><p>43 micronutrients & macros</p></div>
       </div>
 
       <div class="gallery-card" onclick="openLightbox('screenshots/timer-intervals-soundscapes-light.jpeg')">
-        <img src="screenshots/timer-intervals-soundscapes-light.jpeg" alt="Timer" loading="lazy" />
-        <div class="card-label"><h4>Focus Timer</h4><p>Intervals & soundscapes</p></div>
+        <img src="screenshots/timer-intervals-soundscapes-light.jpeg" alt="Focus Timer" loading="lazy" />
+        <div class="card-label"><h4>Focus Timers</h4><p>Soundscapes & notifications</p></div>
       </div>
 
-      <div class="gallery-card" onclick="openLightbox('screenshots/executive-pdf-dossier-light-modal.jpeg')">
-        <img src="screenshots/executive-pdf-dossier-light-modal.jpeg" alt="PDF" loading="lazy" />
-        <div class="card-label"><h4>PDF Report</h4><p>30-day performance dossier</p></div>
+      <div class="gallery-card" onclick="openLightbox('screenshots/weekly-insights-analytics-light.jpeg')">
+        <img src="screenshots/weekly-insights-analytics-light.jpeg" alt="Insights & Analytics" loading="lazy" />
+        <div class="card-label"><h4>Analytics & DRI</h4><p>Readiness index score</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/photos-gallery-timeline-light.jpeg')">
+        <img src="screenshots/photos-gallery-timeline-light.jpeg" alt="Photos & Weight" loading="lazy" />
+        <div class="card-label"><h4>Weight & Photos</h4><p>Encrypted local timeline</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/settings-theme-customizer-light.jpeg')">
+        <img src="screenshots/settings-theme-customizer-light.jpeg" alt="Appearance & Themes" loading="lazy" />
+        <div class="card-label"><h4>Theme Studio</h4><p>13 accents & OLED mode</p></div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('screenshots/android-widget-tasks-habits.jpeg')">
+        <img src="screenshots/android-widget-tasks-habits.jpeg" alt="Android Widgets" loading="lazy" />
+        <div class="card-label"><h4>Android Widgets</h4><p>Glanceable home screen</p></div>
       </div>
 
     </div>
   </section>
 
-  <!-- Details (Under the Hood in Sleek Dark Cards) -->
-  <section class="details">
+  <!-- Details -->
+  <section class="details" id="details">
     <div class="details-header">
       <div class="kicker">Under the Hood</div>
       <h2>Built different. Not just different looking.</h2>
-      <p>Lock In isn't another habit tracker with a dark mode. It's a complete performance system built from first principles.</p>
+      <p>Lock In is engineered from first principles as an offline-first sovereign tool. Zero cloud servers, zero external databases, zero tracking.</p>
     </div>
 
     <div class="stats-row">
@@ -1042,67 +1297,73 @@
       </div>
       <div class="stat-cell">
         <div class="stat-num">0</div>
-        <div class="stat-label">Data sent to any server</div>
+        <div class="stat-label">Bytes sent to any server</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">6</div>
-        <div class="stat-label">Domains in PDF reports</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Client-side execution</div>
       </div>
     </div>
 
     <div class="detail-blocks">
       <div class="detail-block">
         <h3>Clinical-grade nutrition, not just calorie counting</h3>
-        <p>Most apps stop at calories and macros. Lock In tracks 43 individual bioactives — 13 vitamins, 9 minerals, omega-3/6 ratios, EPA, DHA, fiber, and more — with personalized RDA targets based on your age, sex, and activity level.</p>
+        <p>Most apps stop at calories and macros. Lock In tracks 43 bioactives — 13 vitamins, 9 minerals, omega-3/6 ratios, EPA, DHA, fiber, and sodium — with personalized RDA targets based on your biological profile.</p>
         <ul>
           <li>USDA and ICMR verified food database works entirely offline</li>
           <li>Category adequacy scores detect chronic vitamin and mineral gaps</li>
-          <li>Quick-add frequently used foods for sub-5-second logging</li>
+          <li>Quick-add frequently used foods for sub-3-second logging</li>
         </ul>
       </div>
 
       <div class="detail-block">
         <h3>Your data stays on your device. Period.</h3>
-        <p>Lock In uses Dexie.js over IndexedDB — everything lives in your browser's local database. No accounts, no sign-ups, no analytics, no telemetry. Your weight logs, photos, and nutrition history never leave your phone.</p>
+        <p>Lock In uses Dexie.js over IndexedDB — everything lives in your hardware's local database. No accounts, no sign-ups, no analytics, no telemetry. Your weight logs, photos, and notes never touch the cloud.</p>
         <ul>
           <li>Progress photos stored in sandboxed local storage, not a cloud bucket</li>
-          <li>Private vault with PIN protection for sensitive notes</li>
-          <li>Full data export so you always own your information</li>
+          <li>Stealth private vault with triple-tap activation & PIN keypad</li>
+          <li>Full data export so you always maintain complete data ownership</li>
         </ul>
       </div>
 
       <div class="detail-block">
-        <h3>Real engineering, not a wrapper</h3>
-        <p>Built with React 19, Vite 5, and Capacitor 8 for native Android performance. Focus timers use an Android Foreground Service so they keep running accurately even when the screen is off. Audio soundscapes are synthesized in real-time with the Web Audio API.</p>
+        <h3>Real engineering, not a web wrapper</h3>
+        <p>Built with React 19, Vite 5, and Capacitor 8 for native Android performance. Focus timers use an Android Foreground Service to eliminate timer drift during Doze mode and screen sleep.</p>
         <ul>
-          <li>Zero timer drift during Doze mode and screen sleep</li>
+          <li>Zero timer drift during Doze mode and lock screen states</li>
           <li>Client-side PDF generation with jsPDF — no server round-trips</li>
-          <li>Hardware camera integration with canvas-level photo compression</li>
+          <li>Hardware camera integration with canvas photo compression</li>
         </ul>
       </div>
 
       <div class="detail-block">
-        <h3>Designed for daily use, not just screenshots</h3>
-        <p>Three visual themes (Light, Dark, Ultra-Dark) with 12 accent colors. Haptic feedback on check-ins. Drag-to-reorder tasks. Gamification with XP, levels, and milestone badges that reward consistency over perfection.</p>
+        <h3>Designed for daily discipline, not engagement tricks</h3>
+        <p>Three visual themes (Light, Dark, Ultra-Dark) with 13 accent colors. Haptic feedback on check-ins. Drag-to-reorder tasks. Gamification with XP, levels, and milestone badges that reward consistency.</p>
         <ul>
           <li>Executive PDF dossiers available in both light and dark themes</li>
-          <li>Weekly insights synthesize all 6 domains into a single discipline score</li>
-          <li>Recurring tasks and habits with flexible scheduling rules</li>
+          <li>Weekly insights synthesize all 6 domains into a single DRI score</li>
+          <li>Bidirectional note-to-task sync with automatic task cleanup</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Bottom CTA (Obsidian Card on Off-White Canvas) -->
+  <!-- Bottom CTA -->
   <section class="cta-section">
     <div class="cta-card">
       <h2>Ready to lock in?</h2>
-      <p>Download once. Own it forever. No accounts, no cloud, no subscriptions — just you and your goals.</p>
-      <a href="lock-in.apk" download="Lock-In.apk" class="cta-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download Lock In APK
-      </a>
-      <div class="cta-meta">v2.5 · 9.8 MB · Android 8.0+</div>
+      <p>Download once. Own it forever. No accounts, no subscriptions, no ads — just you, your habits, and your standard.</p>
+      <div class="cta-buttons">
+        <a href="lock-in.apk" download="Lock-In.apk" class="cta-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Lock In APK
+        </a>
+        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="cta-btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          Sample Executive PDF
+        </a>
+      </div>
+      <div class="cta-meta">v2.5 · 11.5 MB · Android 8.0+ · 100% Offline</div>
     </div>
   </section>
 
@@ -1120,46 +1381,43 @@
   </div>
 
   <script>
-    // Screen switcher tabs
-    document.querySelectorAll('.screen-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.screen-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const img = document.getElementById('deviceImg');
-        img.style.opacity = '0';
+    document.querySelectorAll(".screen-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".screen-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        const img = document.getElementById("deviceImg");
+        img.style.opacity = "0";
         setTimeout(() => {
           img.src = tab.dataset.src;
-          img.style.opacity = '1';
+          img.style.opacity = "1";
         }, 150);
       });
     });
 
-    // 3D tilt on device (disabled on touch devices for silky smooth scrolling)
-    const frame = document.getElementById('deviceFrame');
-    const stage = document.querySelector('.device-stage');
-    if (stage && frame && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      stage.addEventListener('mousemove', e => {
+    const frame = document.getElementById("deviceFrame");
+    const stage = document.querySelector(".device-stage");
+    if (stage && frame && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      stage.addEventListener("mousemove", e => {
         const r = stage.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width - 0.5;
         const y = (e.clientY - r.top) / r.height - 0.5;
-        frame.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 14}deg)`;
+        frame.style.transform = "rotateY(" + (x * 14) + "deg) rotateX(" + (-y * 14) + "deg)";
       });
-      stage.addEventListener('mouseleave', () => {
-        frame.style.transform = '';
+      stage.addEventListener("mouseleave", () => {
+        frame.style.transform = "";
       });
     }
 
-    // Lightbox
     function openLightbox(src) {
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightbox').classList.add('open');
-      document.body.style.overflow = 'hidden';
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightbox").classList.add("open");
+      document.body.style.overflow = "hidden";
     }
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
+      document.getElementById("lightbox").classList.remove("open");
+      document.body.style.overflow = "";
     }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
   </script>
 </body>
 </html>
