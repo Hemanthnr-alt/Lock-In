@@ -2,324 +2,271 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Lock In — Master the 1% Standard</title>
-  <meta name="description" content="The complete local-first personal performance engine. Atomic habits, 43-nutrient clinical nutrition, focus timers, solid notes vault, and executive PDF reports — 100% offline." />
-  <meta name="theme-color" content="#EDE8E1" />
-  <meta property="og:title" content="Lock In — Master the 1% Standard" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <title>Lock In — Your Body. Your Data. Your Device.</title>
+  <meta name="description" content="The sovereign local-first performance engine. 43-nutrient clinical nutrition, atomic habits, focus timers, stealth vault, and executive PDF reports — 100% offline, zero subscriptions." />
+  <meta name="theme-color" content="#F8F6F1" />
+  <meta property="og:title" content="Lock In — Your Body. Your Data. Your Device." />
   <meta property="og:description" content="100% Offline. Zero Subscriptions. The sovereign performance operating system for body, mind, and discipline." />
   <meta property="og:image" content="logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
+    /* ═══════════════════════════════════════════
+       DESIGN TOKENS
+       ═══════════════════════════════════════════ */
     :root {
-      /* Warm Architectural Canvas */
-      --page-bg: #EDE8E1;
-      --page-bg-gradient: linear-gradient(180deg, #F5F1E9 0%, #EBE6DC 40%, #E3DDD2 100%);
-      
-      /* Dark Sleek Cards & Surfaces */
-      --card-bg: #11141C;
-      --card-bg-elevated: #161A24;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(245, 166, 35, 0.35);
-      --card-shadow: 0 14px 40px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.06);
-      --card-shadow-hover: 0 22px 54px rgba(0, 0, 0, 0.25), 0 0 32px rgba(245, 166, 35, 0.14);
-      
-      /* Page-level Text */
-      --text-page: #101114;
-      --text-page-secondary: #4A4B52;
-      --text-page-dim: #767780;
+      --canvas: #F8F6F1;
+      --canvas-subtle: #F0EDE5;
+      --canvas-deep: #E8E4DA;
 
-      /* Card-level Text */
-      --text-card: #FFFFFF;
-      --text-card-secondary: #94A3B8;
-      --text-card-dim: #64748B;
+      --ink: #0C0A09;
+      --ink-secondary: #44403C;
+      --ink-tertiary: #78716C;
+      --ink-faint: #A8A29E;
 
-      /* Accents & Warmth */
-      --gold: #F5A623;
-      --gold-glow: rgba(245, 166, 35, 0.28);
-      --amber-warm: #E65A1E;
-      --bronze: #B47200;
-      --bronze-bg: rgba(180, 114, 0, 0.08);
-      --bronze-border: rgba(180, 114, 0, 0.22);
-      
-      --radius-sm: 10px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
+      --surface: #18181B;
+      --surface-elevated: #1E1E22;
+      --surface-border: rgba(255,255,255,0.08);
+      --surface-border-hover: rgba(255,255,255,0.16);
+
+      --gold: #C4962C;
+      --gold-soft: rgba(196,150,44,0.12);
+      --gold-border: rgba(196,150,44,0.25);
+
+      --white: #FFFFFF;
+      --white-secondary: #E7E5E4;
+      --white-tertiary: #A8A29E;
+      --white-faint: #57534E;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 28px;
       --radius-full: 999px;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+      --shadow-xl: 0 24px 64px rgba(0,0,0,0.18);
+      --shadow-device: 0 40px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      width: 100%;
-      max-width: 100vw;
-      overflow-x: hidden;
-      position: relative;
-    }
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
     }
 
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
     body {
-      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--page-bg);
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.85) 0%, transparent 65%),
-        var(--page-bg-gradient);
-      background-attachment: fixed;
-      color: var(--text-page);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--canvas);
+      color: var(--ink);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
     }
 
     a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { border: none; background: none; cursor: pointer; font: inherit; }
 
-    /* ─── Top Nav ─── */
-    nav {
+    .serif { font-family: 'Instrument Serif', Georgia, serif; }
+
+    /* Scroll-triggered animation base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════ */
+    .nav {
       position: sticky;
       top: 0;
-      width: 100%;
-      max-width: 100vw;
       z-index: 100;
-      background: rgba(245, 241, 233, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-      box-sizing: border-box;
-      transition: background 0.2s ease;
+      background: rgba(248, 246, 241, 0.82);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
     .nav-inner {
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
-      height: 64px;
+      padding: 0 32px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-sizing: border-box;
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.03em;
-      color: var(--text-page);
+      gap: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.02em;
       cursor: pointer;
     }
 
-    .nav-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 11px;
-      background: #000;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .nav-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-    }
-
-    @media (max-width: 760px) {
-      .nav-links { display: none; }
+      gap: 28px;
     }
 
     .nav-link {
       font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text-page-secondary);
-      transition: color 0.15s ease;
+      font-weight: 500;
+      color: var(--ink-tertiary);
+      transition: color 0.2s ease;
+      letter-spacing: -0.01em;
     }
 
-    .nav-link:hover {
-      color: var(--text-page);
-    }
+    .nav-link:hover { color: var(--ink); }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-btn-secondary {
-      height: 38px;
-      padding: 0 16px;
-      border-radius: var(--radius-full);
-      background: rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.09);
-      color: var(--text-page);
-      font-weight: 600;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .nav-btn-secondary:hover {
-      background: rgba(0, 0, 0, 0.09);
-      transform: translateY(-1px);
-    }
-
-    .nav-download {
-      height: 38px;
+    .nav-cta {
+      height: 36px;
       padding: 0 18px;
       border-radius: var(--radius-full);
-      background: #111114;
-      color: #FFF !important;
-      font-weight: 650;
+      background: var(--ink);
+      color: var(--white) !important;
+      font-weight: 600;
       font-size: 13px;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 6px;
+      letter-spacing: -0.01em;
+      transition: all 0.2s var(--ease-out);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
-    .nav-download:hover {
-      background: #000;
+    .nav-cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.22);
     }
 
-    /* ─── Hero Section ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 0 20px; }
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════ */
     .hero {
       position: relative;
-      padding: 64px 20px 48px;
+      padding: 80px 32px 60px;
       text-align: center;
-      max-width: 1080px;
+      max-width: 960px;
       margin: 0 auto;
       overflow: visible;
-      box-sizing: border-box;
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: -30px;
+      top: -120px;
       left: 50%;
       transform: translateX(-50%);
-      width: min(840px, 100vw);
-      height: 520px;
-      background: radial-gradient(ellipse at center, rgba(230, 90, 30, 0.08) 0%, rgba(245, 166, 35, 0.05) 45%, transparent 70%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(196,150,44,0.06) 0%, rgba(196,150,44,0.03) 40%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Hero App Icon Showcase */
-    .hero-icon-container {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 22px;
-      z-index: 1;
-    }
-
-    .hero-app-icon {
-      width: 86px;
-      height: 86px;
-      border-radius: 22px;
-      box-shadow: 
-        0 18px 40px rgba(230, 90, 30, 0.28),
-        0 6px 16px rgba(0, 0, 0, 0.12),
-        0 0 0 1.5px rgba(255, 255, 255, 0.7);
-      display: block;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hero-icon-container:hover .hero-app-icon {
-      transform: scale(1.05) translateY(-3px);
-    }
-
-    .hero-badge {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 16px;
+      padding: 6px 16px 6px 10px;
       border-radius: var(--radius-full);
-      background: var(--bronze-bg);
-      border: 1px solid var(--bronze-border);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
       font-size: 12px;
-      font-weight: 750;
-      color: var(--bronze);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      z-index: 1;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
       position: relative;
+      z-index: 1;
     }
 
-    .hero-badge::before {
-      content: '';
-      width: 7px;
-      height: 7px;
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: #E65A1E;
-      box-shadow: 0 0 8px #E65A1E;
-      animation: pulse 2s infinite;
+      background: var(--gold);
+      animation: pulse 2.5s ease-in-out infinite;
     }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
+      50% { opacity: 0.3; transform: scale(0.7); }
     }
 
     .hero h1 {
-      font-size: clamp(48px, 9.5vw, 92px);
-      font-weight: 800;
-      letter-spacing: -0.045em;
-      line-height: 0.98;
-      margin-bottom: 12px;
-      background: linear-gradient(180deg, #101114 35%, #42434A 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(52px, 10vw, 96px);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 0.95;
+      margin-bottom: 24px;
+      color: var(--ink);
       position: relative;
       z-index: 1;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
     }
 
     .hero-subtitle {
-      font-size: clamp(18px, 3.8vw, 24px);
-      font-weight: 700;
-      color: #A36A00;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero p {
-      font-size: clamp(16px, 3vw, 19.5px);
-      line-height: 1.6;
-      color: var(--text-page-secondary);
-      max-width: 660px;
-      margin: 0 auto 36px;
-      font-weight: 450;
+      font-size: clamp(16px, 2.8vw, 19px);
+      line-height: 1.65;
+      color: var(--ink-secondary);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      font-weight: 400;
       position: relative;
       z-index: 1;
     }
@@ -328,132 +275,174 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
+      margin-bottom: 36px;
       position: relative;
       z-index: 1;
     }
 
-    .hero-cta {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      height: 54px;
-      padding: 0 32px;
+      gap: 8px;
+      height: 52px;
+      padding: 0 28px;
       border-radius: var(--radius-full);
-      background: #111114;
-      color: #FFF !important;
-      font-weight: 700;
+      background: var(--ink);
+      color: var(--white) !important;
+      font-weight: 600;
       font-size: 15px;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
-      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      letter-spacing: -0.01em;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      transition: all 0.22s var(--ease-out);
     }
 
-    .hero-cta:hover {
-      background: #000;
+    .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28);
     }
 
-    .hero-cta-secondary {
+    .btn-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      height: 54px;
-      padding: 0 26px;
+      gap: 8px;
+      height: 52px;
+      padding: 0 24px;
       border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      color: var(--text-page);
-      font-weight: 650;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.1);
+      color: var(--ink);
+      font-weight: 600;
       font-size: 14.5px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      letter-spacing: -0.01em;
+      transition: all 0.22s var(--ease-out);
     }
 
-    .hero-cta-secondary:hover {
-      background: #FFF;
-      border-color: rgba(0, 0, 0, 0.22);
+    .btn-secondary:hover {
+      border-color: rgba(0,0,0,0.2);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
 
-    .hero-meta {
+    .hero-trust {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      font-size: 12.5px;
-      color: var(--text-page-dim);
+      gap: 6px;
       flex-wrap: wrap;
       position: relative;
       z-index: 1;
     }
 
-    .hero-meta span {
+    .trust-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
+      gap: 5px;
+      padding: 5px 12px;
       border-radius: var(--radius-full);
-      background: rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      font-weight: 600;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.05);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-tertiary);
     }
 
-    /* ─── 3D Device Stage ─── */
+    .trust-badge svg { opacity: 0.5; }
+
+    /* ═══════════════════════════════════════════
+       SOCIAL PROOF STATS STRIP
+       ═══════════════════════════════════════════ */
+    .stats-strip {
+      padding: 0 32px;
+      margin-bottom: 20px;
+    }
+
+    .stats-strip-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(0,0,0,0.06);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-item {
+      background: var(--white);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-tertiary);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 640px) {
+      .stats-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ═══════════════════════════════════════════
+       DEVICE SHOWCASE
+       ═══════════════════════════════════════════ */
     .device-section {
-      padding: 10px 20px 80px;
+      padding: 60px 20px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
-      box-sizing: border-box;
     }
 
     .device-stage {
-      perspective: 1400px;
+      perspective: 1600px;
       display: flex;
       justify-content: center;
       margin-bottom: 28px;
-      width: 100%;
     }
 
     .device-frame {
-      width: min(324px, 86vw);
-      border-radius: 46px;
+      width: min(300px, 80vw);
+      border-radius: 44px;
       background: #000;
-      padding: 12px;
-      box-shadow:
-        0 0 0 1.5px rgba(255, 255, 255, 0.22),
-        0 0 0 4px #1A1A20,
-        0 30px 75px rgba(0, 0, 0, 0.38),
-        0 8px 24px rgba(0, 0, 0, 0.18);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 10px;
+      box-shadow: var(--shadow-device);
+      transition: transform 0.5s var(--ease-out);
       will-change: transform;
       position: relative;
-      box-sizing: border-box;
     }
 
-    .device-speaker {
+    .device-notch {
       position: absolute;
-      top: 18px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 52px;
-      height: 4.5px;
-      background: #252528;
-      border-radius: 3px;
+      width: 100px;
+      height: 26px;
+      background: #000;
+      border-radius: 0 0 18px 18px;
       z-index: 10;
     }
 
     .device-screen {
       border-radius: 34px;
       overflow: hidden;
-      background: #FFF;
+      background: #111;
       line-height: 0;
       aspect-ratio: 9 / 19.5;
       position: relative;
@@ -463,201 +452,261 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: opacity 0.2s ease-in-out;
+      transition: opacity 0.3s ease;
     }
 
     .screen-tabs {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
-      max-width: 840px;
+      max-width: 760px;
     }
 
     .screen-tab {
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: var(--radius-full);
-      background: rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      color: var(--text-page-secondary);
-      font-size: 13px;
-      font-weight: 650;
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.08);
+      color: var(--ink-tertiary);
+      font-size: 12.5px;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.2s var(--ease-out);
+      letter-spacing: -0.01em;
     }
 
     .screen-tab:hover {
-      background: rgba(0, 0, 0, 0.09);
-      color: var(--text-page);
+      background: rgba(0,0,0,0.04);
+      color: var(--ink-secondary);
+      border-color: rgba(0,0,0,0.12);
     }
 
     .screen-tab.active {
-      background: #111114;
-      color: #FFF;
+      background: var(--ink);
+      color: var(--white);
       border-color: transparent;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* ─── Features (The Pillars) ─── */
-    .features {
-      padding: 80px 20px;
-      max-width: 1140px;
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .features-header {
+    /* ═══════════════════════════════════════════
+       SECTION HEADERS
+       ═══════════════════════════════════════════ */
+    .section-header {
       text-align: center;
-      margin-bottom: 54px;
+      margin-bottom: 48px;
     }
 
-    .features-header .kicker {
-      font-size: 12px;
-      font-weight: 750;
-      color: var(--bronze);
+    .section-kicker {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--gold);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
     }
 
-    .features-header h2 {
-      font-size: clamp(28px, 5vw, 46px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      color: var(--text-page);
+    .section-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(32px, 5.5vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--ink);
     }
 
-    .features-grid {
+    .section-desc {
+      font-size: 16px;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+      max-width: 540px;
+      margin: 14px auto 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       FEATURES — BENTO GRID
+       ═══════════════════════════════════════════ */
+    .features {
+      padding: 80px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bento-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: auto;
+      gap: 16px;
     }
 
-    .feature-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+    .bento-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
       border-radius: var(--radius-lg);
       padding: 32px 28px;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s;
+      transition: border-color 0.3s ease, transform 0.3s var(--ease-out), box-shadow 0.3s ease;
       position: relative;
+      overflow: hidden;
     }
 
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--card-border-hover);
-      box-shadow: var(--card-shadow-hover);
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
     }
 
-    .feature-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
+    .bento-card:hover {
+      border-color: var(--surface-border-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
     }
 
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+    /* Hero card spans 2 columns */
+    .bento-hero {
+      grid-column: span 2;
+    }
+
+    .bento-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--gold);
+      margin-bottom: 20px;
     }
 
-    .feature-tag {
-      font-size: 11px;
-      font-weight: 750;
-      padding: 4px 10px;
+    .bento-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
       border-radius: var(--radius-full);
-      background: rgba(245, 166, 35, 0.12);
-      border: 1px solid rgba(245, 166, 35, 0.25);
+      background: var(--gold-soft);
       color: var(--gold);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
+      margin-bottom: 14px;
     }
 
-    .feature-card h3 {
-      font-size: 18px;
-      font-weight: 750;
-      margin-bottom: 9px;
+    .bento-card h3 {
+      font-size: 17px;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--text-card);
+      color: var(--white);
+      margin-bottom: 8px;
     }
 
-    .feature-card p {
-      font-size: 14.5px;
+    .bento-hero h3 {
+      font-size: 22px;
+    }
+
+    .bento-card p {
+      font-size: 14px;
       line-height: 1.6;
-      color: var(--text-card-secondary);
+      color: var(--white-tertiary);
     }
 
-    /* ─── Spotlight: Executive Dossier PDF ─── */
-    .spotlight {
-      padding: 30px 20px 80px;
-      max-width: 1140px;
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
+    .bento-hero p {
+      font-size: 15px;
+      max-width: 480px;
     }
 
-    .spotlight-card {
-      background: linear-gradient(135deg, #11141C 0%, #181D2A 100%);
-      border: 1px solid rgba(245, 166, 35, 0.25);
-      border-radius: 32px;
-      padding: 52px;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 0 45px rgba(245, 166, 35, 0.12);
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 44px;
-      align-items: center;
-    }
-
-    @media (max-width: 880px) {
-      .spotlight-card {
-        grid-template-columns: 1fr;
-        padding: 36px 24px;
+    @media (max-width: 900px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bento-hero {
+        grid-column: span 2;
       }
     }
 
-    .spotlight-badge {
+    @media (max-width: 600px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-hero {
+        grid-column: span 1;
+      }
+      .features { padding: 60px 20px; }
+    }
+
+    /* ═══════════════════════════════════════════
+       SPOTLIGHT — EXECUTIVE DOSSIER
+       ═══════════════════════════════════════════ */
+    .spotlight {
+      padding: 40px 32px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .spotlight-card {
+      background: linear-gradient(145deg, #111114 0%, #1a1a20 50%, #111114 100%);
+      border: 1px solid rgba(196,150,44,0.2);
+      border-radius: var(--radius-xl);
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3), 0 0 60px rgba(196,150,44,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(196,150,44,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .spotlight-kicker {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 5px 14px;
       border-radius: var(--radius-full);
-      background: rgba(245, 166, 35, 0.12);
-      border: 1px solid rgba(245, 166, 35, 0.3);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
       color: var(--gold);
-      font-size: 11.5px;
-      font-weight: 750;
+      font-size: 11px;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .spotlight-card h3 {
-      font-size: clamp(26px, 4vw, 38px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: #FFF;
-      line-height: 1.15;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      line-height: 1.1;
       margin-bottom: 16px;
     }
 
-    .spotlight-card p {
-      font-size: 15.5px;
+    .spotlight-card > div > p {
+      font-size: 15px;
       line-height: 1.65;
-      color: var(--text-card-secondary);
-      margin-bottom: 26px;
+      color: var(--white-tertiary);
+      margin-bottom: 28px;
     }
 
-    .spotlight-bullets {
+    .spotlight-list {
       list-style: none;
       display: flex;
       flex-direction: column;
@@ -665,295 +714,222 @@
       margin-bottom: 32px;
     }
 
-    .spotlight-bullets li {
+    .spotlight-list li {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
-      font-size: 14.5px;
-      color: #E2E8F0;
+      font-size: 14px;
+      color: var(--white-secondary);
+      line-height: 1.5;
     }
 
-    .spotlight-bullets li svg {
+    .spotlight-list li svg {
       color: var(--gold);
       flex-shrink: 0;
-    }
-
-    .spotlight-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
+      margin-top: 2px;
     }
 
     .btn-gold {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      height: 50px;
-      padding: 0 28px;
+      height: 48px;
+      padding: 0 26px;
       border-radius: var(--radius-full);
       background: var(--gold);
       color: #000;
-      font-weight: 750;
-      font-size: 14.5px;
-      box-shadow: 0 4px 20px rgba(245, 166, 35, 0.38);
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(196,150,44,0.35);
+      transition: all 0.22s var(--ease-out);
+      letter-spacing: -0.01em;
     }
 
     .btn-gold:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(245, 166, 35, 0.52);
+      box-shadow: 0 8px 32px rgba(196,150,44,0.5);
     }
 
     .spotlight-preview {
       display: flex;
       justify-content: center;
+      position: relative;
+      z-index: 1;
     }
 
     .spotlight-preview img {
-      max-width: 290px;
+      max-width: 280px;
       width: 100%;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.5);
+      transition: transform 0.4s var(--ease-out);
     }
 
-    /* ─── Gallery ─── */
-    .gallery {
-      padding: 70px 20px;
-      max-width: 1140px;
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
+    .spotlight-preview img:hover {
+      transform: translateY(-6px) scale(1.02);
     }
 
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .gallery-header .kicker {
-      font-size: 12px;
-      font-weight: 750;
-      color: var(--bronze);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
-    }
-
-    .gallery-header h2 {
-      font-size: clamp(28px, 5vw, 44px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      color: var(--text-page);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 18px;
-    }
-
-    @media (max-width: 560px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-    }
-
-    .gallery-card {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--card-border);
-      background: var(--card-bg);
-      cursor: pointer;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-    }
-
-    .gallery-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--card-border-hover);
-      box-shadow: var(--card-shadow-hover);
-    }
-
-    .gallery-card img {
-      width: 100%;
-      aspect-ratio: 9 / 19.5;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-card .card-label {
-      padding: 12px 14px;
-      border-top: 1px solid var(--card-border);
-      background: var(--card-bg);
-    }
-
-    .gallery-card .card-label h4 {
-      font-size: 13px;
-      font-weight: 750;
-      margin-bottom: 2px;
-      color: var(--text-card);
-    }
-
-    .gallery-card .card-label p {
-      font-size: 11.5px;
-      color: var(--text-card-dim);
-    }
-
-    /* ─── Architecture & Under the Hood ─── */
-    .details {
-      padding: 70px 20px;
-      max-width: 1140px;
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .details-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .details-header .kicker {
-      font-size: 12px;
-      font-weight: 750;
-      color: var(--bronze);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
-    }
-
-    .details-header h2 {
-      font-size: clamp(28px, 5vw, 44px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      color: var(--text-page);
-    }
-
-    .details-header p {
-      font-size: 16px;
-      color: var(--text-page-secondary);
-      line-height: 1.6;
-      max-width: 640px;
-      margin: 10px auto 0;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 34px;
-    }
-
-    @media (max-width: 720px) {
-      .stats-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .stat-cell {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-md);
-      padding: 24px 18px;
-      text-align: center;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.2s ease;
-    }
-
-    .stat-cell:hover {
-      transform: translateY(-2px);
-    }
-
-    .stat-num {
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text-card);
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 12.5px;
-      color: var(--text-card-dim);
-      font-weight: 600;
-    }
-
-    .detail-blocks {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-      gap: 22px;
-    }
-
-    @media (max-width: 580px) {
-      .detail-blocks {
+    @media (max-width: 880px) {
+      .spotlight-card {
         grid-template-columns: 1fr;
+        padding: 36px 24px;
       }
+      .spotlight { padding: 20px 20px 60px; }
     }
 
-    .detail-block {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+    /* ═══════════════════════════════════════════
+       ARCHITECTURE — UNDER THE HOOD
+       ═══════════════════════════════════════════ */
+    .architecture {
+      padding: 80px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .arch-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
       border-radius: var(--radius-lg);
       padding: 32px;
-      box-shadow: var(--card-shadow);
     }
 
-    .detail-block h3 {
-      font-size: 17.5px;
-      font-weight: 750;
+    .arch-card h3 {
+      font-size: 17px;
+      font-weight: 700;
       letter-spacing: -0.015em;
-      margin-bottom: 12px;
-      color: var(--text-card);
+      color: var(--white);
+      margin-bottom: 10px;
     }
 
-    .detail-block p {
-      font-size: 14.5px;
+    .arch-card > p {
+      font-size: 14px;
       line-height: 1.6;
-      color: var(--text-card-secondary);
-      margin-bottom: 16px;
+      color: var(--white-tertiary);
+      margin-bottom: 18px;
     }
 
-    .detail-block ul {
+    .arch-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
     }
 
-    .detail-block li {
-      font-size: 13.5px;
-      color: var(--text-card-secondary);
+    .arch-list li {
+      font-size: 13px;
+      color: var(--white-tertiary);
       display: flex;
       align-items: baseline;
-      gap: 9px;
+      gap: 8px;
+      line-height: 1.5;
     }
 
-    .detail-block li::before {
-      content: '•';
-      color: var(--gold);
-      font-weight: bold;
-      font-size: 16px;
+    .arch-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 6px;
     }
 
-    /* ─── Bottom CTA ─── */
-    .cta-section {
-      padding: 40px 20px 90px;
-      max-width: 1140px;
-      margin: 0 auto;
+    @media (max-width: 700px) {
+      .arch-grid { grid-template-columns: 1fr; }
+      .architecture { padding: 60px 20px; }
+    }
+
+    /* ═══════════════════════════════════════════
+       GALLERY — HORIZONTAL SCROLL
+       ═══════════════════════════════════════════ */
+    .gallery {
+      padding: 80px 0;
+    }
+
+    .gallery .section-header {
+      padding: 0 32px;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 32px 20px;
+      scrollbar-width: none;
+    }
+
+    .gallery-scroll::-webkit-scrollbar { display: none; }
+
+    .gallery-item {
+      flex: 0 0 220px;
+      scroll-snap-align: start;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      cursor: pointer;
+      transition: transform 0.25s var(--ease-out), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--surface-border-hover);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
       width: 100%;
-      box-sizing: border-box;
+      aspect-ratio: 9 / 19.5;
+      object-fit: cover;
+    }
+
+    .gallery-label {
+      padding: 12px 14px;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .gallery-label h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+      letter-spacing: -0.01em;
+    }
+
+    .gallery-label p {
+      font-size: 11px;
+      color: var(--white-faint);
+    }
+
+    @media (max-width: 640px) {
+      .gallery-item { flex: 0 0 180px; }
+      .gallery { padding: 60px 0; }
+    }
+
+    /* ═══════════════════════════════════════════
+       FINAL CTA
+       ═══════════════════════════════════════════ */
+    .final-cta {
+      padding: 20px 32px 100px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .cta-card {
-      background: linear-gradient(180deg, #10121A 0%, #0A0B10 100%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 32px;
-      padding: 68px 30px;
+      background: linear-gradient(180deg, #111114 0%, #0a0a0d 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-xl);
+      padding: 72px 32px;
       text-align: center;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
       position: relative;
       overflow: hidden;
     }
@@ -961,30 +937,32 @@
     .cta-card::before {
       content: '';
       position: absolute;
-      top: -100px;
+      top: -120px;
       left: 50%;
       transform: translateX(-50%);
-      width: 500px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(245, 166, 35, 0.15) 0%, transparent 70%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(196,150,44,0.1) 0%, transparent 65%);
       pointer-events: none;
     }
 
     .cta-card h2 {
-      font-size: clamp(32px, 6vw, 50px);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      color: #FFF;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(36px, 6.5vw, 56px);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: var(--white);
       margin-bottom: 14px;
       position: relative;
+      line-height: 1.05;
     }
 
-    .cta-card p {
-      font-size: 16.5px;
+    .cta-card > p {
+      font-size: 16px;
       line-height: 1.6;
-      color: #94A3B8;
-      max-width: 560px;
-      margin: 0 auto 32px;
+      color: var(--white-tertiary);
+      max-width: 480px;
+      margin: 0 auto 36px;
       position: relative;
     }
 
@@ -992,61 +970,65 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       position: relative;
+      margin-bottom: 20px;
     }
 
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      height: 54px;
-      padding: 0 34px;
-      border-radius: var(--radius-full);
-      background: #FFF;
-      color: #000 !important;
-      font-weight: 750;
-      font-size: 15px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-    }
-
-    .cta-btn-outline {
+    .btn-white {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      height: 54px;
-      padding: 0 28px;
+      height: 52px;
+      padding: 0 30px;
       border-radius: var(--radius-full);
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #FFF !important;
-      font-weight: 650;
-      font-size: 14.5px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      background: var(--white);
+      color: #000 !important;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      transition: all 0.22s var(--ease-out);
     }
 
-    .cta-btn-outline:hover {
-      border-color: #FFF;
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,255,255,0.2);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 52px;
+      padding: 0 26px;
+      border-radius: var(--radius-full);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white) !important;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      transition: all 0.22s var(--ease-out);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.4);
       transform: translateY(-2px);
     }
 
     .cta-meta {
-      margin-top: 20px;
-      font-size: 13px;
-      color: var(--text-card-dim);
+      font-size: 12.5px;
+      color: var(--white-faint);
       position: relative;
     }
 
-    /* ─── Sticky Mobile Download Bar ─── */
-    .mobile-sticky-bar {
+    /* ═══════════════════════════════════════════
+       MOBILE STICKY BAR
+       ═══════════════════════════════════════════ */
+    .mobile-bar {
       display: none;
       position: fixed;
       bottom: 20px;
@@ -1054,116 +1036,128 @@
       transform: translateX(-50%) translateY(100px);
       z-index: 95;
       width: calc(100% - 32px);
-      max-width: 400px;
-      padding: 8px 12px;
-      background: rgba(17, 20, 28, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      max-width: 380px;
+      padding: 8px 8px 8px 14px;
+      background: rgba(17,17,20,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: var(--radius-full);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
       opacity: 0;
+      transition: transform 0.35s var(--ease-out), opacity 0.35s ease;
     }
 
-    .mobile-sticky-bar.visible {
+    .mobile-bar.visible {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
 
     @media (max-width: 680px) {
-      .mobile-sticky-bar {
-        display: flex;
-      }
+      .mobile-bar { display: flex; }
     }
 
-    .mobile-bar-left {
+    .mobile-bar-info {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .mobile-bar-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      overflow: hidden;
-      flex-shrink: 0;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    .mobile-bar-info img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
-    .mobile-bar-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .mobile-bar-info h5 {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .mobile-bar-text h5 {
-      color: #FFF;
-      font-size: 13.5px;
-      font-weight: 750;
-      line-height: 1.2;
-    }
-
-    .mobile-bar-text p {
-      color: var(--text-card-dim);
-      font-size: 11px;
+    .mobile-bar-info span {
+      color: var(--white-faint);
+      font-size: 10.5px;
     }
 
     .mobile-bar-btn {
-      padding: 8px 16px;
+      padding: 9px 16px;
       border-radius: var(--radius-full);
-      background: var(--gold);
+      background: var(--white);
       color: #000;
       font-size: 12.5px;
-      font-weight: 750;
+      font-weight: 700;
       white-space: nowrap;
       display: inline-flex;
       align-items: center;
       gap: 5px;
+      letter-spacing: -0.01em;
     }
 
-    /* ─── Footer ─── */
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
     footer {
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 36px 20px;
-      text-align: center;
-      font-size: 13.5px;
-      color: var(--text-page-dim);
-      width: 100%;
-      box-sizing: border-box;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 13px;
+      color: var(--ink-faint);
     }
 
-    /* ─── Lightbox ─── */
+    footer a {
+      color: var(--ink-tertiary);
+      transition: color 0.15s ease;
+    }
+
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 600px) {
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 24px 20px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       LIGHTBOX
+       ═══════════════════════════════════════════ */
     .lightbox {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 999;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(16px);
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       align-items: center;
       justify-content: center;
       padding: 20px;
-      box-sizing: border-box;
     }
 
     .lightbox.open { display: flex; }
 
-    .lightbox-inner {
+    .lightbox-frame {
       position: relative;
-      max-width: 420px;
+      max-width: 400px;
       width: 100%;
-      border-radius: 26px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7);
     }
 
-    .lightbox-inner img {
+    .lightbox-frame img {
       width: 100%;
       display: block;
     }
@@ -1172,28 +1166,28 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #FFF;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
       font-size: 18px;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
     }
 
+    .lightbox-close:hover { background: rgba(0,0,0,0.7); }
+
+    /* ═══════════════════════════════════════════
+       MOBILE OVERRIDES
+       ═══════════════════════════════════════════ */
     @media (max-width: 480px) {
       .hero {
-        padding: 44px 16px 36px;
-      }
-      .hero h1 {
-        font-size: 44px;
-      }
-      .hero p {
-        font-size: 15.5px;
+        padding: 48px 20px 40px;
       }
       .hero-actions {
         flex-direction: column;
@@ -1202,482 +1196,562 @@
         margin-left: auto;
         margin-right: auto;
       }
-      .hero-cta, .hero-cta-secondary {
-        width: 100%;
-      }
-      .nav-inner {
-        padding: 0 16px;
-      }
-      .device-section {
-        padding: 10px 16px 50px;
-      }
+      .btn-primary, .btn-secondary { width: 100%; }
+      .stats-strip { padding: 0 16px; }
+      .stat-item { padding: 20px 12px; }
       .device-frame {
-        width: min(290px, 84vw);
-        border-radius: 38px;
+        width: min(270px, 82vw);
+        border-radius: 36px;
       }
-      .device-screen {
-        border-radius: 28px;
-      }
-      .screen-tab {
-        padding: 6px 12px;
-        font-size: 12px;
-      }
+      .device-screen { border-radius: 28px; }
+      .screen-tab { padding: 6px 10px; font-size: 11.5px; }
       .cta-card {
-        padding: 44px 18px;
-        border-radius: 24px;
+        padding: 48px 20px;
+        border-radius: var(--radius-lg);
       }
-      .cta-buttons {
-        flex-direction: column;
-      }
-      .cta-btn, .cta-btn-outline {
-        width: 100%;
-        max-width: 300px;
-      }
+      .cta-buttons { flex-direction: column; }
+      .btn-white, .btn-outline { width: 100%; max-width: 300px; }
+      .final-cta { padding: 10px 16px 80px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Nav -->
-  <nav>
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav">
     <div class="nav-inner">
       <div class="nav-brand" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-        <div class="nav-logo"><img src="logo.png" alt="Lock In Logo" /></div>
+        <img src="logo.png" alt="Lock In" />
         Lock In
       </div>
       <div class="nav-links">
         <a href="#features" class="nav-link">Features</a>
-        <a href="#device" class="nav-link">Screens</a>
+        <a href="#showcase" class="nav-link">Screens</a>
         <a href="#dossier" class="nav-link">Executive Dossier</a>
         <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#details" class="nav-link">Architecture</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
       </div>
-      <div class="nav-actions">
-        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="nav-btn-secondary">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Report PDF
-        </a>
-        <a href="lock-in.apk" download="Lock-In.apk" class="nav-download">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download APK
-        </a>
-      </div>
+      <a href="lock-in.apk" download="Lock-In.apk" class="nav-cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download APK
+      </a>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- ═══ HERO ═══ -->
   <section class="hero">
-    <div class="hero-icon-container">
-      <img src="logo.png" alt="Lock In App Emblem" class="hero-app-icon" />
+    <div class="hero-eyebrow reveal">
+      <span class="hero-eyebrow-dot"></span>
+      v2.5 Release — Sovereign Performance OS
     </div>
-    <br/>
-    <div class="hero-badge">v2.5 Release · 100% Sovereign Performance OS</div>
-    <h1>Lock In.</h1>
-    <div class="hero-subtitle">Master the 1% Standard.</div>
-    <p>The sovereign, local-first operating system for body, mind, and discipline. Daily agenda, atomic habits, clinical 43-nutrient nutrition, focus timers, stealth notes vault, and executive performance dossiers — zero cloud, zero telemetry, zero subscriptions.</p>
-    <div class="hero-actions">
-      <a href="lock-in.apk" download="Lock-In.apk" class="hero-cta">
+    <h1 class="reveal reveal-delay-1">Your body.<br/>Your data.<br/>Your <em>device.</em></h1>
+    <p class="hero-subtitle reveal reveal-delay-2">The local-first operating system for body, mind, and discipline. Clinical 43-nutrient tracking, atomic habits, focus timers, stealth vault, and executive PDF reports — zero cloud, zero telemetry, zero subscriptions.</p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="lock-in.apk" download="Lock-In.apk" class="btn-primary">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download APK (11.5 MB)
+        Download APK
       </a>
-      <a href="Lock-In-Report-Sample.pdf" target="_blank" class="hero-cta-secondary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        Sample Executive Dossier (PDF)
+      <a href="Lock-In-Report-Sample.pdf" target="_blank" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Sample Executive Dossier
       </a>
     </div>
-    <div class="hero-meta">
-      <span>100% Offline</span>
-      <span>Zero Subscriptions</span>
-      <span>IndexedDB Sandboxed</span>
-      <span>Android 8.0+ Ready</span>
+    <div class="hero-trust reveal reveal-delay-4">
+      <span class="trust-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        100% Offline
+      </span>
+      <span class="trust-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Zero Subscriptions
+      </span>
+      <span class="trust-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        On-Device Only
+      </span>
+      <span class="trust-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        Android 8.0+
+      </span>
     </div>
   </section>
 
-  <!-- 3D Interactive Device Stage -->
-  <section class="device-section" id="device">
-    <div style="width: 100%; max-width: 840px; display: flex; flex-direction: column; align-items: center;">
+  <!-- ═══ STATS STRIP ═══ -->
+  <section class="stats-strip reveal">
+    <div class="stats-strip-inner">
+      <div class="stat-item">
+        <div class="stat-number" data-target="43">0</div>
+        <div class="stat-label">Nutrients Tracked</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="2233" data-suffix="+">0</div>
+        <div class="stat-label">Offline Foods</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="0" data-static="true">0</div>
+        <div class="stat-label">Server Bytes Sent</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="100" data-suffix="%">0</div>
+        <div class="stat-label">On-Device Execution</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DEVICE SHOWCASE ═══ -->
+  <section class="device-section reveal" id="showcase">
+    <div style="width:100%; max-width:760px; display:flex; flex-direction:column; align-items:center;">
       <div class="device-stage">
         <div class="device-frame" id="deviceFrame">
-          <div class="device-speaker"></div>
+          <div class="device-notch"></div>
           <div class="device-screen">
-            <img id="deviceImg" src="screenshots/today-agenda-light.jpeg" alt="Lock In Today Screen" />
+            <img id="deviceImg" src="screenshots/today-agenda-light.jpeg" alt="Lock In App" />
           </div>
         </div>
       </div>
       <div class="screen-tabs">
-        <button class="screen-tab active" data-src="screenshots/today-agenda-light.jpeg">Today Agenda</button>
-        <button class="screen-tab" data-src="screenshots/habits-overview-light.jpeg">Habits Tracker</button>
-        <button class="screen-tab" data-src="screenshots/calories-nutrition-macros-light.jpeg">Nutrition & Macros</button>
-        <button class="screen-tab" data-src="screenshots/notes-vault-light.jpeg">Notes & Vault</button>
-        <button class="screen-tab" data-src="screenshots/timer-intervals-soundscapes-light.jpeg">Focus Timers</button>
-        <button class="screen-tab" data-src="screenshots/photos-gallery-timeline-light.jpeg">Weight & Photos</button>
-        <button class="screen-tab" data-src="screenshots/weekly-insights-analytics-light.jpeg">Discipline Index</button>
-        <button class="screen-tab" data-src="screenshots/settings-theme-customizer-light.jpeg">13 Accents & Themes</button>
-        <button class="screen-tab" data-src="screenshots/executive-pdf-dossier-light-modal.jpeg">Executive PDF</button>
+        <button class="screen-tab active" data-src="screenshots/today-agenda-light.jpeg">Today</button>
+        <button class="screen-tab" data-src="screenshots/habits-overview-light.jpeg">Habits</button>
+        <button class="screen-tab" data-src="screenshots/calories-nutrition-macros-light.jpeg">Nutrition</button>
+        <button class="screen-tab" data-src="screenshots/notes-vault-light.jpeg">Notes</button>
+        <button class="screen-tab" data-src="screenshots/timer-intervals-soundscapes-light.jpeg">Timer</button>
+        <button class="screen-tab" data-src="screenshots/photos-gallery-timeline-light.jpeg">Photos</button>
+        <button class="screen-tab" data-src="screenshots/weekly-insights-analytics-light.jpeg">Analytics</button>
+        <button class="screen-tab" data-src="screenshots/settings-theme-customizer-light.jpeg">Themes</button>
+        <button class="screen-tab" data-src="screenshots/executive-pdf-dossier-light-modal.jpeg">PDF Export</button>
       </div>
     </div>
   </section>
 
-  <!-- Spotlight: Executive Dossier PDF -->
-  <section class="spotlight" id="dossier">
+  <!-- ═══ FEATURES — BENTO GRID ═══ -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <div class="section-kicker reveal">Core Systems</div>
+      <h2 class="section-title reveal reveal-delay-1">Engineered for<br/>absolute standards.</h2>
+    </div>
+
+    <div class="bento-grid">
+
+      <!-- HERO CARD: Nutrition -->
+      <div class="bento-card bento-hero reveal">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="bento-tag">43 Nutrients</div>
+        <h3>Clinical-Grade Nutrition Engine</h3>
+        <p>Precision micronutrient tracking across 13 vitamins, 9 minerals, omega fatty acids, and fiber — powered by 2,233+ verified offline USDA and ICMR foods. Not just calories. Clinical adequacy.</p>
+      </div>
+
+      <!-- Today Agenda -->
+      <div class="bento-card reveal reveal-delay-1">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="bento-tag">Daily Hub</div>
+        <h3>Today Agenda</h3>
+        <p>Tasks, habits, hydration, and calories unified into one friction-free daily view with drag-and-drop ordering.</p>
+      </div>
+
+      <!-- Atomic Habits -->
+      <div class="bento-card reveal reveal-delay-2">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="bento-tag">Consistency</div>
+        <h3>Atomic Habits</h3>
+        <p>Boolean, numeric, and fluid tracking with 14-day heatmaps, custom frequencies, and audio check-in chimes.</p>
+      </div>
+
+      <!-- Focus Timer -->
+      <div class="bento-card reveal">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="bento-tag">Audio Synthesis</div>
+        <h3>Focus Timers &amp; Soundscapes</h3>
+        <p>Stopwatch, Pomodoro, and HIIT intervals with an Android Foreground Service and procedural Rain, Alpha Waves, and Forest soundscapes.</p>
+      </div>
+
+      <!-- Notes & Vault -->
+      <div class="bento-card reveal reveal-delay-1">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="bento-tag">Stealth Vault</div>
+        <h3>Solid Notes &amp; Vault</h3>
+        <p>Full-page editor with color presets, checklist conversions, and a triple-tap PIN keypad stealth vault for private entries.</p>
+      </div>
+
+      <!-- Weight & Photos -->
+      <div class="bento-card reveal reveal-delay-2">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div class="bento-tag">Encrypted</div>
+        <h3>Weight &amp; Photo Timeline</h3>
+        <p>Daily body weight logging with rate-of-change metrics and a sandboxed transformation gallery — never uploaded to the cloud.</p>
+      </div>
+
+      <!-- Widgets -->
+      <div class="bento-card reveal">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="bento-tag">Glanceable</div>
+        <h3>Home Screen Widgets</h3>
+        <p>Native Android widgets for tasks, habit completions, and calorie targets — glanceable from your launcher.</p>
+      </div>
+
+      <!-- Themes -->
+      <div class="bento-card reveal reveal-delay-1">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.32 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <div class="bento-tag">Custom Studio</div>
+        <h3>13 Accents &amp; 3 Themes</h3>
+        <p>macOS Light, Obsidian Dark, and OLED Ultra-Dark with 13 hand-curated accent colors.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ EXECUTIVE DOSSIER SPOTLIGHT ═══ -->
+  <section class="spotlight reveal" id="dossier">
     <div class="spotlight-card">
-      <div class="spotlight-content">
-        <div class="spotlight-badge">Signature Engineering</div>
-        <h3>The 30-Day Executive Performance Dossier</h3>
-        <p>Your complete physical, mental, and nutritional trajectory distilled into an immaculate publication-grade PDF report. Synthesized entirely on your device with client-side jsPDF.</p>
-        <ul class="spotlight-bullets">
+      <div>
+        <div class="spotlight-kicker">Signature Engineering</div>
+        <h3>The 30-Day Executive<br/>Performance Dossier</h3>
+        <p>Your complete physical, mental, and nutritional trajectory distilled into a publication-grade PDF — synthesized entirely on your device with client-side jsPDF.</p>
+        <ul class="spotlight-list">
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Discipline Readiness Index (DRI) score across all 6 lifestyle pillars
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Discipline Readiness Index across all 6 lifestyle pillars
           </li>
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Clinical 43-nutrient adequacy breakdown with vitamin & mineral radars
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Clinical 43-nutrient adequacy with vitamin &amp; mineral radars
           </li>
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            Publication styling in Onyx Gold (Dark) and Clinical Minimalist (Light)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Onyx Gold (Dark) and Clinical Minimalist (Light) styling
           </li>
         </ul>
-        <div class="spotlight-actions">
-          <a href="Lock-In-Report-Sample.pdf" target="_blank" class="btn-gold">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-            Download Sample Report (PDF)
-          </a>
-        </div>
+        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="btn-gold">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+          Download Sample Report
+        </a>
       </div>
       <div class="spotlight-preview">
-        <img src="screenshots/executive-pdf-dossier-light-modal.jpeg" alt="Executive PDF Dossier Generator" />
+        <img src="screenshots/executive-pdf-dossier-light-modal.jpeg" alt="Executive PDF Dossier" />
       </div>
     </div>
   </section>
 
-  <!-- Features (The Pillars) -->
-  <section class="features" id="features">
-    <div class="features-header">
-      <div class="kicker">Core System Architecture</div>
-      <h2>Engineered for absolute standards.</h2>
-    </div>
-    <div class="features-grid">
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <span class="feature-tag">Daily Hub</span>
-        </div>
-        <h3>Today Agenda</h3>
-        <p>Pending tasks, atomic habits, water hydration pacing, and calorie intake unified into a single friction-free agenda with smooth drag-and-drop ordering.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <span class="feature-tag">Consistency</span>
-        </div>
-        <h3>Atomic Habits</h3>
-        <p>Boolean, numeric quota, and fluid target tracking with 14-day consistency heatmaps, custom frequency cadences, and synthesized audio check-in chimes.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <span class="feature-tag">43 Nutrients</span>
-        </div>
-        <h3>43-Nutrient Clinical Engine</h3>
-        <p>Precision micronutrient tracking across 13 vitamins, 9 minerals, omega fatty acids, and fiber powered by 2,233+ verified offline USDA and ICMR foods.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <span class="feature-tag">Audio Synthesis</span>
-        </div>
-        <h3>Focus & Procedural Soundscapes</h3>
-        <p>Stopwatch, Pomodoro, and HIIT intervals backed by an Android Foreground Service with procedural real-time soundscapes: Rain, Alpha Waves, and Forest.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <span class="feature-tag">Solid & Stealth</span>
-        </div>
-        <h3>Solid Notes & Stealth Vault</h3>
-        <p>Minimalist notes with Google Keep-inspired full-page editor, solid color presets, checklist conversions, and a private triple-tap PIN keypad stealth vault.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </div>
-          <span class="feature-tag">Encrypted</span>
-        </div>
-        <h3>Weight & Photo Timeline</h3>
-        <p>Daily body weight logging with automated rate-of-change metrics and a sandboxed transformation gallery that never uploads to external cloud buckets.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <span class="feature-tag">Glanceable</span>
-        </div>
-        <h3>Home Screen Widgets</h3>
-        <p>Glanceable native Android widgets for Today tasks, habit completions, and calorie targets directly on your mobile launcher without opening the app.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-top">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          </div>
-          <span class="feature-tag">Custom Studio</span>
-        </div>
-        <h3>13 Accents & 3 Themes</h3>
-        <p>macOS Light, Obsidian Dark, and OLED Ultra-Dark with 13 hand-curated accent colors (Blush Petal, Olive Green, Cafe Noir, Ceylanite, Jubilee, and more).</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Gallery -->
+  <!-- ═══ GALLERY — HORIZONTAL SCROLL ═══ -->
   <section class="gallery" id="gallery">
-    <div class="gallery-header">
-      <div class="kicker">Interface Gallery</div>
-      <h2>Precision crafted down to the pixel.</h2>
+    <div class="section-header">
+      <div class="section-kicker reveal">Interface Gallery</div>
+      <h2 class="section-title reveal reveal-delay-1">Crafted down to<br/>the pixel.</h2>
     </div>
-    <div class="gallery-grid">
 
-      <div class="gallery-card" onclick="openLightbox('screenshots/today-agenda-light.jpeg')">
+    <div class="gallery-scroll">
+      <div class="gallery-item" onclick="openLightbox('screenshots/today-agenda-light.jpeg')">
         <img src="screenshots/today-agenda-light.jpeg" alt="Today Agenda" loading="lazy" />
-        <div class="card-label"><h4>Today Agenda</h4><p>Unified daily schedule</p></div>
+        <div class="gallery-label"><h4>Today Agenda</h4><p>Unified daily schedule</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/habits-overview-light.jpeg')">
-        <img src="screenshots/habits-overview-light.jpeg" alt="Habits Tracker" loading="lazy" />
-        <div class="card-label"><h4>Atomic Habits</h4><p>14-day consistency rates</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/habits-overview-light.jpeg')">
+        <img src="screenshots/habits-overview-light.jpeg" alt="Habits" loading="lazy" />
+        <div class="gallery-label"><h4>Atomic Habits</h4><p>14-day consistency rates</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/calories-nutrition-macros-light.jpeg')">
-        <img src="screenshots/calories-nutrition-macros-light.jpeg" alt="Nutrition Engine" loading="lazy" />
-        <div class="card-label"><h4>Nutrition Engine</h4><p>43 bioactives & macros</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/calories-nutrition-macros-light.jpeg')">
+        <img src="screenshots/calories-nutrition-macros-light.jpeg" alt="Nutrition" loading="lazy" />
+        <div class="gallery-label"><h4>Nutrition Engine</h4><p>43 bioactives &amp; macros</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/notes-vault-light.jpeg')">
-        <img src="screenshots/notes-vault-light.jpeg" alt="Notes & Vault" loading="lazy" />
-        <div class="card-label"><h4>Solid Notes & Vault</h4><p>Color tagging & PIN vault</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/notes-vault-light.jpeg')">
+        <img src="screenshots/notes-vault-light.jpeg" alt="Notes" loading="lazy" />
+        <div class="gallery-label"><h4>Notes &amp; Vault</h4><p>Color tagging &amp; PIN vault</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/timer-intervals-soundscapes-light.jpeg')">
-        <img src="screenshots/timer-intervals-soundscapes-light.jpeg" alt="Focus Timer" loading="lazy" />
-        <div class="card-label"><h4>Focus Timers</h4><p>Soundscapes & notifications</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/timer-intervals-soundscapes-light.jpeg')">
+        <img src="screenshots/timer-intervals-soundscapes-light.jpeg" alt="Timer" loading="lazy" />
+        <div class="gallery-label"><h4>Focus Timers</h4><p>Soundscapes &amp; intervals</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/weekly-insights-analytics-light.jpeg')">
-        <img src="screenshots/weekly-insights-analytics-light.jpeg" alt="Insights & Analytics" loading="lazy" />
-        <div class="card-label"><h4>Analytics & DRI</h4><p>Discipline Readiness Index</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/weekly-insights-analytics-light.jpeg')">
+        <img src="screenshots/weekly-insights-analytics-light.jpeg" alt="Analytics" loading="lazy" />
+        <div class="gallery-label"><h4>Analytics &amp; DRI</h4><p>Discipline Readiness Index</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/photos-gallery-timeline-light.jpeg')">
-        <img src="screenshots/photos-gallery-timeline-light.jpeg" alt="Photos & Weight" loading="lazy" />
-        <div class="card-label"><h4>Weight & Photos</h4><p>Encrypted local timeline</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/photos-gallery-timeline-light.jpeg')">
+        <img src="screenshots/photos-gallery-timeline-light.jpeg" alt="Photos" loading="lazy" />
+        <div class="gallery-label"><h4>Weight &amp; Photos</h4><p>Encrypted local timeline</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/settings-theme-customizer-light.jpeg')">
-        <img src="screenshots/settings-theme-customizer-light.jpeg" alt="Appearance & Themes" loading="lazy" />
-        <div class="card-label"><h4>Theme Studio</h4><p>13 accents & OLED mode</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/settings-theme-customizer-light.jpeg')">
+        <img src="screenshots/settings-theme-customizer-light.jpeg" alt="Themes" loading="lazy" />
+        <div class="gallery-label"><h4>Theme Studio</h4><p>13 accents &amp; OLED mode</p></div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('screenshots/android-widget-tasks-habits.jpeg')">
-        <img src="screenshots/android-widget-tasks-habits.jpeg" alt="Android Widgets" loading="lazy" />
-        <div class="card-label"><h4>Android Widgets</h4><p>Glanceable home screen</p></div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/android-widget-tasks-habits.jpeg')">
+        <img src="screenshots/android-widget-tasks-habits.jpeg" alt="Widgets" loading="lazy" />
+        <div class="gallery-label"><h4>Android Widgets</h4><p>Glanceable home screen</p></div>
       </div>
-
+      <div class="gallery-item" onclick="openLightbox('screenshots/today-agenda-dark.jpeg')">
+        <img src="screenshots/today-agenda-dark.jpeg" alt="Today Dark" loading="lazy" />
+        <div class="gallery-label"><h4>Today (Dark)</h4><p>Obsidian dark theme</p></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/calories-overview-dark.jpeg')">
+        <img src="screenshots/calories-overview-dark.jpeg" alt="Calories Dark" loading="lazy" />
+        <div class="gallery-label"><h4>Calories (Dark)</h4><p>Macro tracking view</p></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('screenshots/habits-overview-dark.jpeg')">
+        <img src="screenshots/habits-overview-dark.jpeg" alt="Habits Dark" loading="lazy" />
+        <div class="gallery-label"><h4>Habits (Dark)</h4><p>Streak &amp; consistency</p></div>
+      </div>
     </div>
   </section>
 
-  <!-- Details / Architecture -->
-  <section class="details" id="details">
-    <div class="details-header">
-      <div class="kicker">Under the Hood</div>
-      <h2>Built different. Not just different looking.</h2>
-      <p>Lock In is engineered from first principles as an offline-first sovereign tool. Zero cloud servers, zero external databases, zero user surveillance.</p>
+  <!-- ═══ ARCHITECTURE ═══ -->
+  <section class="architecture" id="architecture">
+    <div class="section-header">
+      <div class="section-kicker reveal">Under the Hood</div>
+      <h2 class="section-title reveal reveal-delay-1">Built different.<br/>Not just different looking.</h2>
+      <p class="section-desc reveal reveal-delay-2">Engineered from first principles as an offline-first sovereign tool. Zero cloud servers, zero external databases, zero user surveillance.</p>
     </div>
 
-    <div class="stats-row">
-      <div class="stat-cell">
-        <div class="stat-num">43</div>
-        <div class="stat-label">Bioactive Nutrients</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">2,233+</div>
-        <div class="stat-label">Offline Food Items</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">0</div>
-        <div class="stat-label">External Server Bytes</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Client Hardware Execution</div>
-      </div>
-    </div>
-
-    <div class="detail-blocks">
-      <div class="detail-block">
+    <div class="arch-grid">
+      <div class="arch-card reveal">
         <h3>Clinical-grade nutrition, not just calorie counting</h3>
-        <p>Most fitness apps stop at calories and macros. Lock In tracks 43 bioactives — 13 vitamins, 9 minerals, omega-3/6 ratios, EPA, DHA, fiber, and sodium — with personalized RDA targets based on your biological profile.</p>
-        <ul>
-          <li>USDA and ICMR verified food database works entirely offline</li>
+        <p>Most fitness apps stop at calories and macros. Lock In tracks 43 bioactives with personalized RDA targets based on your biological profile.</p>
+        <ul class="arch-list">
+          <li>USDA and ICMR verified food database — entirely offline</li>
           <li>Category adequacy scores detect chronic micronutrient gaps</li>
-          <li>Quick-add frequently logged items for sub-3-second daily entries</li>
+          <li>Quick-add frequently logged items for sub-3-second entries</li>
         </ul>
       </div>
 
-      <div class="detail-block">
+      <div class="arch-card reveal reveal-delay-1">
         <h3>Your data stays on your device. Period.</h3>
-        <p>Lock In uses Dexie.js over IndexedDB — everything lives in your hardware's local database. No accounts, no sign-ups, no analytics, no telemetry. Your weight logs, photos, and notes never touch the cloud.</p>
-        <ul>
-          <li>Progress photos stored in sandboxed local storage, not a cloud bucket</li>
-          <li>Stealth private vault with triple-tap activation & PIN keypad</li>
-          <li>Full data export so you always maintain complete data ownership</li>
+        <p>Dexie.js over IndexedDB — everything lives in your hardware's local database. No accounts, no sign-ups, no analytics.</p>
+        <ul class="arch-list">
+          <li>Progress photos stored in sandboxed local storage</li>
+          <li>Stealth vault with triple-tap activation &amp; PIN keypad</li>
+          <li>Full data export — you always own your data</li>
         </ul>
       </div>
 
-      <div class="detail-block">
+      <div class="arch-card reveal">
         <h3>Real native engineering, not a web wrapper</h3>
-        <p>Built with React 19, Vite 5, and Capacitor 8 for native Android performance. Focus timers use an Android Foreground Service to eliminate timer drift during Doze mode and screen sleep.</p>
-        <ul>
-          <li>Zero timer drift during Doze mode and lock screen states</li>
-          <li>Client-side PDF generation with jsPDF — zero server round-trips</li>
-          <li>Hardware camera integration with canvas photo compression</li>
+        <p>React 19, Vite 5, and Capacitor 8 for native Android performance. Focus timers use a Foreground Service to eliminate timer drift.</p>
+        <ul class="arch-list">
+          <li>Zero timer drift during Doze mode and lock screen</li>
+          <li>Client-side PDF generation with jsPDF</li>
+          <li>Hardware camera integration with canvas compression</li>
         </ul>
       </div>
 
-      <div class="detail-block">
-        <h3>Designed for daily discipline, not engagement tricks</h3>
-        <p>Three visual themes (Light, Dark, Ultra-Dark) with 13 accent colors. Haptic feedback on check-ins. Drag-to-reorder tasks. Gamification with XP, levels, and milestone badges that reward consistency.</p>
-        <ul>
-          <li>Executive PDF dossiers available in both light and dark themes</li>
-          <li>Weekly insights synthesize all 6 domains into a single DRI score</li>
-          <li>Bidirectional note-to-task sync with automatic task cleanup</li>
+      <div class="arch-card reveal reveal-delay-1">
+        <h3>Designed for discipline, not engagement tricks</h3>
+        <p>Three visual themes with 13 accent colors. Haptic feedback. Drag-to-reorder. XP, levels, and milestone badges that reward consistency.</p>
+        <ul class="arch-list">
+          <li>Executive PDF dossiers in both light and dark themes</li>
+          <li>Weekly insights synthesize 6 domains into a DRI score</li>
+          <li>Bidirectional note-to-task sync with automatic cleanup</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Bottom CTA -->
-  <section class="cta-section">
-    <div class="cta-card">
+  <!-- ═══ FINAL CTA ═══ -->
+  <section class="final-cta">
+    <div class="cta-card reveal">
       <h2>Ready to lock in?</h2>
       <p>Download once. Own it forever. No accounts, no subscriptions, no ads — just you, your habits, and your standard.</p>
       <div class="cta-buttons">
-        <a href="lock-in.apk" download="Lock-In.apk" class="cta-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <a href="lock-in.apk" download="Lock-In.apk" class="btn-white">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Lock In APK
         </a>
-        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="cta-btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        <a href="Lock-In-Report-Sample.pdf" target="_blank" class="btn-outline">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           Sample Executive PDF
         </a>
       </div>
-      <div class="cta-meta">v2.5 · 11.5 MB · Android 8.0+ · 100% Offline</div>
+      <div class="cta-meta">v2.5 &middot; 11.5 MB &middot; Android 8.0+ &middot; 100% Offline</div>
     </div>
   </section>
 
-  <!-- Mobile Sticky Download Bar -->
-  <div class="mobile-sticky-bar" id="mobileBar">
-    <div class="mobile-bar-left">
-      <div class="mobile-bar-icon"><img src="logo.png" alt="Lock In" /></div>
-      <div class="mobile-bar-text">
+  <!-- ═══ MOBILE STICKY BAR ═══ -->
+  <div class="mobile-bar" id="mobileBar">
+    <div class="mobile-bar-info">
+      <img src="logo.png" alt="Lock In" />
+      <div>
         <h5>Lock In</h5>
-        <p>100% Offline · v2.5</p>
+        <span>100% Offline &middot; v2.5</span>
       </div>
     </div>
     <a href="lock-in.apk" download="Lock-In.apk" class="mobile-bar-btn">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Get APK
     </a>
   </div>
 
-  <!-- Footer -->
+  <!-- ═══ FOOTER ═══ -->
   <footer>
-    <p>Lock In · Master the 1% Standard · Sovereign Personal Performance OS</p>
+    <span>Lock In &middot; Sovereign Performance OS</span>
+    <span>
+      <a href="Lock-In-Report-Sample.pdf" target="_blank">Sample Report</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://github.com/Hemanthnr-alt/Lock-In-Ecosystem" target="_blank">GitHub</a>
+    </span>
   </footer>
 
-  <!-- Lightbox -->
+  <!-- ═══ LIGHTBOX ═══ -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <div class="lightbox-frame" onclick="event.stopPropagation()">
       <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
       <img id="lightboxImg" src="" alt="Preview" />
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+       ═══════════════════════════════════════════ -->
   <script>
-    // Interactive 3D Device Screen Switcher
-    document.querySelectorAll(".screen-tab").forEach(tab => {
-      tab.addEventListener("click", () => {
-        document.querySelectorAll(".screen-tab").forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        const img = document.getElementById("deviceImg");
-        img.style.opacity = "0";
+    // ── Scroll-triggered reveal animations ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Animated stat counters ──
+    let statsCounted = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !statsCounted) {
+          statsCounted = true;
+          document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+            const target = parseInt(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const isStatic = el.dataset.static === 'true';
+
+            if (isStatic) {
+              el.textContent = target + suffix;
+              return;
+            }
+
+            const duration = 1800;
+            const start = performance.now();
+
+            function update(now) {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              // ease-out quad
+              const eased = 1 - (1 - progress) * (1 - progress);
+              const current = Math.round(eased * target);
+
+              if (target >= 1000) {
+                el.textContent = current.toLocaleString() + suffix;
+              } else {
+                el.textContent = current + suffix;
+              }
+
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              }
+            }
+
+            requestAnimationFrame(update);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsStrip = document.querySelector('.stats-strip-inner');
+    if (statsStrip) statsObserver.observe(statsStrip);
+
+    // ── Device screen switcher ──
+    document.querySelectorAll('.screen-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.screen-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const img = document.getElementById('deviceImg');
+        img.style.opacity = '0';
         setTimeout(() => {
           img.src = tab.dataset.src;
-          img.style.opacity = "1";
-        }, 150);
+          img.onload = () => { img.style.opacity = '1'; };
+          // fallback
+          setTimeout(() => { img.style.opacity = '1'; }, 300);
+        }, 200);
       });
     });
 
-    // 3D Perspective Tilt on Mouse Movement
-    const frame = document.getElementById("deviceFrame");
-    const stage = document.querySelector(".device-stage");
-    if (stage && frame && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-      stage.addEventListener("mousemove", e => {
+    // ── 3D perspective tilt ──
+    const frame = document.getElementById('deviceFrame');
+    const stage = document.querySelector('.device-stage');
+    if (stage && frame && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      stage.addEventListener('mousemove', e => {
         const r = stage.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width - 0.5;
         const y = (e.clientY - r.top) / r.height - 0.5;
-        frame.style.transform = "rotateY(" + (x * 14) + "deg) rotateX(" + (-y * 14) + "deg)";
+        frame.style.transform = `rotateY(${x * 12}deg) rotateX(${-y * 12}deg)`;
       });
-      stage.addEventListener("mouseleave", () => {
-        frame.style.transform = "";
+      stage.addEventListener('mouseleave', () => {
+        frame.style.transform = '';
       });
     }
 
-    // Lightbox modal for gallery screenshots
+    // ── Lightbox ──
     function openLightbox(src) {
-      document.getElementById("lightboxImg").src = src;
-      document.getElementById("lightbox").classList.add("open");
-      document.body.style.overflow = "hidden";
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
     function closeLightbox() {
-      document.getElementById("lightbox").classList.remove("open");
-      document.body.style.overflow = "";
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
     }
-    document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-    // Mobile sticky bar appears after scrolling past hero
-    const mobileBar = document.getElementById("mobileBar");
-    const heroSection = document.querySelector(".hero");
+    // ── Mobile sticky bar ──
+    const mobileBar = document.getElementById('mobileBar');
+    const heroSection = document.querySelector('.hero');
     if (mobileBar && heroSection) {
-      window.addEventListener("scroll", () => {
+      window.addEventListener('scroll', () => {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
-        if (heroBottom < 0) {
-          mobileBar.classList.add("visible");
-        } else {
-          mobileBar.classList.remove("visible");
-        }
+        mobileBar.classList.toggle('visible', heroBottom < 0);
       }, { passive: true });
+    }
+
+    // ── Gallery horizontal drag scroll ──
+    const galleryScroll = document.querySelector('.gallery-scroll');
+    if (galleryScroll) {
+      let isDown = false, startX, scrollLeft;
+
+      galleryScroll.addEventListener('mousedown', e => {
+        isDown = true;
+        galleryScroll.style.cursor = 'grabbing';
+        startX = e.pageX - galleryScroll.offsetLeft;
+        scrollLeft = galleryScroll.scrollLeft;
+      });
+
+      galleryScroll.addEventListener('mouseleave', () => {
+        isDown = false;
+        galleryScroll.style.cursor = '';
+      });
+
+      galleryScroll.addEventListener('mouseup', () => {
+        isDown = false;
+        galleryScroll.style.cursor = '';
+      });
+
+      galleryScroll.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - galleryScroll.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        galleryScroll.scrollLeft = scrollLeft - walk;
+      });
     }
   </script>
 </body>
