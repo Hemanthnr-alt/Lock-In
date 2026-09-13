@@ -45,9 +45,9 @@ This repository hosts the official landing page, production APK distribution, an
 | :---: | :---: | :---: |
 | <img src="screenshots/today-agenda-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/habits-overview-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/calories-nutrition-macros-light.jpeg" width="240" style="border-radius:12px;"/> |
 
-| Focus & Soundscapes | Insights & Analytics | Android Widgets |
+| Focus & Soundscapes | Insights & Analytics | Transformation Photos |
 | :---: | :---: | :---: |
-| <img src="screenshots/timer-intervals-soundscapes-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/weekly-insights-analytics-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/android-widget-tasks-habits.jpeg" width="240" style="border-radius:12px;"/> |
+| <img src="screenshots/timer-intervals-soundscapes-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/weekly-insights-analytics-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/photos-gallery-timeline-light.jpeg" width="240" style="border-radius:12px;"/> |
 
 </div>
 
