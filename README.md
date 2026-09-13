@@ -1,73 +1,75 @@
-﻿# Lock In — Official Landing Page & Releases
+<div align="center">
 
-**Master the 1% Standard.**
-
-This repository hosts the official landing page, APK distribution, and sample executive dossiers for [Lock In](https://github.com/Hemanthnr-alt/Lock-In-Ecosystem), a local-first personal performance ecosystem for Android.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,20:161b22,40:6c5ce7,70:8a2be2,100:00f2fe&height=260&section=header&text=Lock%20In%20Distribution&fontSize=56&fontColor=ffffff&fontAlignY=38&fontAlign=50&desc=Official%20Landing%20Page%20%E2%80%A2%20Releases%20%E2%80%A2%20APK%20Distribution&descSize=16&descAlignY=62&descColor=00f2fecc&animation=fadeIn" width="100%"/>
 
 <p align="center">
-  <a href="https://30-landing.vercel.app/">Live Website</a> · 
-  <a href="https://30-landing.vercel.app/lock-in.apk">Download APK</a> · 
-  <a href="Lock-In-Report-Sample.pdf">Sample PDF Dossier</a> · 
-  <a href="https://github.com/Hemanthnr-alt/Lock-In-Ecosystem">Source Code Repository</a>
+  <a href="https://lock-in-eta-nine.vercel.app/"><img src="https://img.shields.io/badge/Live_Website-161b22?style=for-the-badge&logo=googlechrome&logoColor=00F2FE&labelColor=0d1117"/></a>
+  <a href="https://lock-in-eta-nine.vercel.app/lock-in.apk"><img src="https://img.shields.io/badge/Download_APK_(v1.0)-161b22?style=for-the-badge&logo=android&logoColor=22c55e&labelColor=0d1117"/></a>
+  <a href="Lock-In-Report-Sample.pdf"><img src="https://img.shields.io/badge/Sample_PDF_Report-161b22?style=for-the-badge&logo=adobeacrobatreader&logoColor=EA4335&labelColor=0d1117"/></a>
+  <a href="https://github.com/Hemanthnr-alt/Lock-In-Ecosystem"><img src="https://img.shields.io/badge/Source_Repository-161b22?style=for-the-badge&logo=github&logoColor=a29bfe&labelColor=0d1117"/></a>
 </p>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/DEPLOYMENT-VERCEL-000000?style=flat-square&logo=vercel&logoColor=white" />
+  <img src="https://img.shields.io/badge/STATUS-ACTIVE%20PRODUCTION-22c55e?style=flat-square" />
+  <img src="https://img.shields.io/badge/TELEMETRY-0%25-00f2fe?style=flat-square" />
+</p>
 
-## What is Lock In?
+</div>
 
-Lock In is a complete offline personal operating system uniting eight core pillars:
-
-1. **Today Agenda** — Unified daily timeline merging pending tasks, atomic habits, water tracking, and nutritional pacing.
-2. **Atomic Habits** — Boolean, numeric, and fluid tracking with 14-day rolling consistency rates, streak records, and audio feedback.
-3. **Clinical 43-Nutrient Nutrition** — Clinical-grade micronutrient tracking (13 vitamins, 9 minerals, omega fatty acids, fiber) backed by 2,233+ offline foods.
-4. **Weight & Transformation Photos** — Daily weight logging, automated 7-day velocity trajectory, and encrypted local photo timeline.
-5. **Focus Engine & Soundscapes** — Stopwatch, countdown, HIIT intervals, and Pomodoro with real-time procedural soundscapes (Rainstorm, 40Hz Alpha Waves, Forest Stream).
-6. **Executive PDF Reports** — 30-day comprehensive performance dossiers generated entirely client-side in Light and Dark themes.
-7. **Google Keep-Style Notes & Stealth Vault** — Bidirectional note-to-task sync and triple-tap hidden vault protected by PIN keypad.
-8. **Android Home Screen Widgets** — Glanceable home screen widgets for daily agendas and habit completions.
-
-Everything runs 100% on-device. No accounts, no cloud sync, zero telemetry, zero subscriptions.
+<br/>
 
 ---
 
-## Screenshots
+## ⚡ Overview
+
+This repository hosts the official landing page, production APK distribution, and sample executive dossiers for **[Lock In](https://github.com/Hemanthnr-alt/Lock-In-Ecosystem)**, a local-first personal performance ecosystem for Android.
+
+### 🌟 The Eight Core Pillars of Lock In:
+1. **📅 Today Agenda:** Unified timeline merging tasks, atomic habits, water tracking, and nutritional pacing.
+2. **🔥 Atomic Habits:** Quota tracking with 14-day consistency heatmaps and audio confirmations.
+3. **🥗 Clinical 43-Nutrient Nutrition:** 2,233+ offline foods with micronutrient RDA profiling.
+4. **📸 Transformation Photos:** Encrypted on-device progress photo gallery with 7-day velocity trajectory.
+5. **⏱️ Focus Engine:** Procedural soundscapes (Rainstorm, 40Hz Alpha Waves, Forest Stream) & interval timers.
+6. **📊 Executive PDF Reports:** In-browser compiled 30-day comprehensive audit dossiers.
+7. **🔐 Notes & Stealth Vault:** Keep-style notes with triple-tap hidden PIN-protected security vault.
+8. **📱 Home Screen Widgets:** Glanceable Android launcher widgets for quick daily actions.
+
+---
+
+## 📱 Mobile UI Gallery
 
 <div align="center">
 
 | Today Agenda | Habit Tracker | Nutrition Engine |
 | :---: | :---: | :---: |
-| <img src="screenshots/today-agenda-light.jpeg" width="240" /> | <img src="screenshots/habits-overview-light.jpeg" width="240" /> | <img src="screenshots/calories-nutrition-macros-light.jpeg" width="240" /> |
+| <img src="screenshots/today-agenda-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/habits-overview-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/calories-nutrition-macros-light.jpeg" width="240" style="border-radius:12px;"/> |
 
-| Focus & Soundscapes | Insights & DRI Score | Transformation & Weight |
+| Focus & Soundscapes | Insights & Analytics | Android Widgets |
 | :---: | :---: | :---: |
-| <img src="screenshots/timer-intervals-soundscapes-light.jpeg" width="240" /> | <img src="screenshots/weekly-insights-analytics-light.jpeg" width="240" /> | <img src="screenshots/photos-gallery-timeline-light.jpeg" width="240" /> |
-
-| Appearance & Themes | Executive PDF Dossier | Android Home Screen Widgets |
-| :---: | :---: | :---: |
-| <img src="screenshots/settings-theme-customizer-light.jpeg" width="240" /> | <img src="screenshots/executive-pdf-dossier-light-modal.jpeg" width="240" /> | <img src="screenshots/android-widget-tasks-habits.jpeg" width="240" /> |
+| <img src="screenshots/timer-intervals-soundscapes-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/weekly-insights-analytics-light.jpeg" width="240" style="border-radius:12px;"/> | <img src="screenshots/android-widget-tasks-habits.jpeg" width="240" style="border-radius:12px;"/> |
 
 </div>
 
 ---
 
-## Installation
+## 📥 Android Installation Guide
 
-1. Download `lock-in.apk` from the [Live Site](https://30-landing.vercel.app/) or directly from this repository.
-2. Open the APK on your Android device.
-3. If prompted, permit "Install Unknown Apps" for your browser / file manager.
+1. Download **`lock-in.apk`** from the **[Live Website](https://lock-in-eta-nine.vercel.app/)** or directly from this repository.
+2. Open the APK file on your Android device.
+3. If prompted by Android, permit *"Install Unknown Apps"* for your browser or file manager.
 4. Launch Lock In and master the 1% standard.
 
-**System Requirements:** Android 8.0+ (API 26+). Tested and optimized for Android 14+.
+> **System Requirements:** Android 8.0+ (API 26+). Tested and optimized for Android 14+.
 
 ---
 
-## Privacy Guarantee
+## 🛡️ Privacy Guarantee
 
-Lock In was designed with total local-first sovereignty. All user data resides strictly within device sandboxed IndexedDB storage. No network requests, no remote database, no analytics, and no third-party trackers.
+Lock In was engineered on local-first sovereignty. All user data resides strictly within device sandboxed IndexedDB storage. No network calls, no remote database, no analytics, and zero third-party trackers.
 
----
+<br/>
 
-<p align="center">
-  <b>Lock In</b> · Master the 1% Standard<br/>
-  <sub>Built with discipline.</sub>
-</p>
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00f2fe,30:6c5ce7,70:8a2be2,100:0d1117&height=120&section=footer&animation=fadeIn" width="100%"/>
+</div>\n
