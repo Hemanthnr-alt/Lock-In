@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,20:161b22,40:6c5ce7,70:8a2be2,100:00f2fe&height=260&section=header&text=Lock%20In%20Distribution&fontSize=56&fontColor=ffffff&fontAlignY=38&fontAlign=50&desc=Official%20Landing%20Page%20%E2%80%A2%20Releases%20%E2%80%A2%20APK%20Distribution&descSize=16&descAlignY=62&descColor=00f2fecc&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=cylinder&color=0:051b18,25:0f3830,50:00b894,75:00cec9,100:0984e3&height=240&section=header&text=Lock%20In%20Releases&fontSize=56&fontColor=ffffff&fontAlignY=42&fontAlign=50&desc=Official%20Web%20Portal%20%E2%80%A2%20APK%20Distribution%20%E2%80%A2%20Executive%20Dossiers&descSize=16&descAlignY=65&descColor=00cec9cc&animation=fadeIn" width="100%"/>
 
 <p align="center">
   <a href="https://lock-in-eta-nine.vercel.app/"><img src="https://img.shields.io/badge/Live_Website-161b22?style=for-the-badge&logo=googlechrome&logoColor=00F2FE&labelColor=0d1117"/></a>
@@ -71,5 +71,5 @@ Lock In was engineered on local-first sovereignty. All user data resides strictl
 <br/>
 
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00f2fe,30:6c5ce7,70:8a2be2,100:0d1117&height=120&section=footer&animation=fadeIn" width="100%"/>
-</div>\n
+<img src="https://capsule-render.vercel.app/api?type=cylinder&color=0:0984e3,30:00cec9,70:00b894,100:051b18&height=100&section=footer&animation=fadeIn" width="100%"/>
+</div>
